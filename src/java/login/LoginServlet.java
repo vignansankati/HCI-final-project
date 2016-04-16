@@ -7,6 +7,7 @@ package login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -66,7 +67,8 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         PrintWriter out = response.getWriter();
-
+        ArrayList<MyJobs> myJobs = new ArrayList<>();
+                
         UserService us = new UserService();
 
         try {
@@ -76,9 +78,11 @@ public class LoginServlet extends HttpServlet {
             String email = us.validateuserlogin(username, password);
             System.out.println("Afetr validation "+email);
             if (email != null) {
-
+                myJobs = us.getMyJobs(username);
+                System.out.println("myJobs id "+myJobs.size());
                 HttpSession session = request.getSession();
                 session.setAttribute("email", email);
+                session.setAttribute("myAppliedJobs", myJobs);
                 RequestDispatcher rd = request
                         .getRequestDispatcher("JobSearch.jsp");
                 rd.forward(request, response);

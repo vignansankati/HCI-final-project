@@ -79,13 +79,13 @@
         <div>
             <nav>
                 <ul>
-                    <li><a class="active" href="home.html">Home</a></li>
-                    <li><a href="appliedjobs.html">Applied Jobs</a></li>
+                    <li><a class="active" href="JobSearch.jsp">Home</a></li>
+                    <li><a href="appliedjobs.jsp">Applied Jobs</a></li>
                     <li><a href="Consultancies.html">Consultancies</a></li>
                     <li><a href="help.html">Help</a></li>
                     <li><a href="contactus.html">Contact us</a></li>
                     <li><a href="myprofile.html">My profile</a></li>
-                    <li style="float:right" class='right'><a href="welcome.html">Logout</a></li>
+                    <li style="float:right" class='right'><a href="welcome.jsp">Logout</a></li>
 
                 </ul>
             </nav>
@@ -152,39 +152,35 @@
                 </tr>
             </table>
 
-            <h1 align="center">Room Details</h1>
-            <%
-                ArrayList<Job> specialList = (ArrayList<Job>) request.getAttribute("jobList");
-                System.out.println("Category in search 1 " + specialList.get(0).getJobCategory());
-                int numberOfJobs = (int)request.getAttribute("jobCount");
-                if (numberOfJobs > 0) {
-            %>
-            <table align="center" border="1">
+            <table class="table2">
                 <tr>
-                    <th>Room NO</th>
-                    <th>Base Tariff</th>
-                    <th>Facility</th>
+                    <th>Job ID</th>
+                    <th>Job Title</th>   
+                    <th>Description</th>  
+                    <th>Posted Date</th>
+                    <th>Last Date</th>
+                    <th>Apply</th>
                 </tr>
-
+                <%
+                    ArrayList<Job> specialList = (ArrayList<Job>) request.getAttribute("jobList");
+                    System.out.println("Category in search 1 " + specialList.get(0).getJobCategory());
+                    int numberOfJobs = (int) request.getAttribute("jobCount");
+                    if (numberOfJobs > 0) {
+                %>
                 <%
                     for (Job spl : specialList) {
                 %>
                 <tr>
-
                     <td><%=spl.getJobId()%></td>
-                    <td><%=spl.getJobId()%></td>
-                    <td><%=spl.getJobId()%></td>
-
+                    <td><%=spl.getJobTitle()%></td>
+                    <td><%=spl.getJobDescription()%></td>
+                    <td><%=spl.getPostingDate()%></td>
+                    <td><%=spl.getLastDate()%></td>
+                    <td>Apply</td>
                 </tr>
-
                 <%
+                        }
                     }
-                } else {
-                %>
-                <h1 align="center">No jobs</h1>
-                <%
-                    }
-
                 %>
             </table>
         </form>

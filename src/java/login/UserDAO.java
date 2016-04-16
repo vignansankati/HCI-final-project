@@ -71,6 +71,56 @@ public class UserDAO {
         System.out.println("INSERTED");
     }
 
+    public ArrayList<MyJobs> getMyJobs(String username) throws SQLException {
+        ArrayList<MyJobs> myJobs = new ArrayList<>();
+        Connection connect = DBConnection.getConnection();
+        PreparedStatement validatePS = null;
+
+        ResultSet rs = null;
+        ArrayList<Integer> jobsArrayList = new ArrayList<>();
+
+        validatePS = connect
+                .prepareStatement("select jobid from onlinejobportal.appliedjobs where email = ?");
+        validatePS.setString(1, username);
+
+        rs = validatePS.executeQuery();
+
+        while (rs.next()) {
+            System.out.println("In while");
+            int jobId = rs.getInt(1);
+            // Category cat = new Category();
+            jobsArrayList.add(jobId);
+        }
+
+        PreparedStatement seqPS = null;
+        for (int i : jobsArrayList) {
+            seqPS = connect.prepareStatement("select a.jobid,a.qualification,a.jobDescription,b.applieddate,b.status from onlinejobportal.job a,onlinejobportal.appliedjobs b where a.jobid = ? and b.jobid=?");
+            seqPS.setString(1, Integer.toString(i));
+            seqPS.setString(2, Integer.toString(i));
+            rs = seqPS.executeQuery();
+
+            while (rs.next()) {
+                System.out.println("In while");
+                int jobId = rs.getInt(1);
+                String jobTitle = rs.getString(2);
+                String jobDescription = rs.getString(3);
+                String applieddate = rs.getString(4);
+                String status = rs.getString(5);
+                // Category cat = new Category();
+                MyJobs job = new MyJobs();
+
+                job.setJobId(jobId);
+                job.setJobTitle(jobTitle);
+                job.setJobDescription(jobDescription);
+                job.setAppliedDate(applieddate);
+                job.setStatus(status);
+
+                myJobs.add(job);
+            }
+        }
+        return myJobs;
+    }
+
     public String validateuserlogin(String username1, String password)
             throws SQLException {
         User user = new User();
@@ -85,7 +135,7 @@ public class UserDAO {
                 .prepareStatement("select password from onlinejobportal.student where emailid = ?");
         validatePS.setString(1, username1);
         System.out.println("in userdao after query");
-        
+
         rs = validatePS.executeQuery();
         while (rs.next()) {
             System.out.println("in while user dao");
@@ -98,6 +148,7 @@ public class UserDAO {
                 status1 = true;
                 System.out.println("usename in USERDAO is " + username1);
                 return username1;
+
             }
         } catch (Exception e) {
             e.printStackTrace();

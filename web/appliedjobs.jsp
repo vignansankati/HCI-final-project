@@ -1,9 +1,13 @@
+<%-- 
+    Document   : appliedjobs
+    Created on : Apr 16, 2016, 4:19:31 PM
+    Author     : S525108
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="login.MyJobs"%>
 <html>
     <head>
         <link rel="shortcut icon" href="ojp.png" type="image/x-icon" /> 
@@ -95,20 +99,25 @@ and open the template in the editor.
                 <th>Applied Date</th>
                 <th>Status</th>
             </tr>
+            <%
+                ArrayList<MyJobs> specialList = (ArrayList<MyJobs>) session.getAttribute("myAppliedJobs");
+                System.out.println("In applied jobs" + specialList.get(0).getJobId());
+                if (specialList.size() > 0) {
+            %>
+            <%
+                for (MyJobs spl : specialList) {
+            %>
             <tr>
-                <td></td>
-                <td></td>   
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><%=spl.getJobId()%></td>
+                <td><%=spl.getJobTitle()%></td>
+                <td><%=spl.getJobDescription()%></td>
+                <td><%=spl.getAppliedDate()%></td>
+                <td><%=spl.getStatus()%></td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>   
-                <td></td>
-                <td></td>
-            </tr>
+            <%
+                    }
+                }
+            %>
         </table>
     </body>
 </html>

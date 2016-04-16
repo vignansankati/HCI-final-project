@@ -77,13 +77,13 @@
         <div>
             <nav>
                 <ul>
-                    <li><a class="active" href="home.html">Home</a></li>
-                    <li><a href="appliedjobs.html">Applied Jobs</a></li>
+                    <li><a class="active" href="JobSearch.jsp">Home</a></li>
+                    <li><a href="appliedjobs.jsp">Applied Jobs</a></li>
                     <li><a href="Consultancies.html">Consultancies</a></li>
                     <li><a href="help.html">Help</a></li>
                     <li><a href="contactus.html">Contact us</a></li>
                     <li><a href="myprofile.html">My profile</a></li>
-                    <li style="float:right" class='right'><a href="welcome.html">Logout</a></li>
+                    <li style="float:right" class='right'><a href="welcome.jsp">Logout</a></li>
 
                 </ul>
             </nav>

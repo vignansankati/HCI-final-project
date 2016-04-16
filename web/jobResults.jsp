@@ -157,7 +157,7 @@
                 System.out.println("Category in search 1 " + specialList.get(0).getJobCategory());
                 if (specialList.size() > 0) {
             %>
-            <table align="center" border="1">
+            <table align="center" border="1" class="table2">
                 <tr>
                     <th>Job id</th>
                     <th>Job Title</th>
@@ -171,12 +171,12 @@
                     for (Job spl : specialList) {
                 %>
                 <tr>
-                    <th><%=spl.getJobId()%></th>
-                    <th><%=spl.getJobTitle()%></th>
-                    <th><%=spl.getJobDescription()%></th>
-                    <th><%=spl.getPostingDate()%></th>
-                    <th><%=spl.getLastDate()%></th>
-                    <th>Apply</th>
+                    <td><%=spl.getJobId()%></td>
+                    <td><%=spl.getJobTitle()%></td>
+                    <td><%=spl.getJobDescription()%></td>
+                    <td><%=spl.getPostingDate()%></td>
+                    <td><%=spl.getLastDate()%></td>
+                    <td>Apply</td>
                     
 
                 </tr>

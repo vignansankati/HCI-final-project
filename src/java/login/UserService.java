@@ -1,6 +1,7 @@
 package login;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import login.UserDAO;
 import login.User;
@@ -20,6 +21,11 @@ public class UserService {
 		
 	}
 
+        public ArrayList<MyJobs> getMyJobs(String username) throws Exception {
+            UserDAO udao=new UserDAO();
+		 return	udao.getMyJobs(username);
+        }
+        
 	public boolean verifyusername(User customer) throws Exception {
 		UserDAO udao=new UserDAO();
 		System.out.println("customer dao : "+udao.verifyusername(customer));
