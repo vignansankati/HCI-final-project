@@ -7,6 +7,7 @@ package login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author S525108
  */
-public class LoginServlet extends HttpServlet {
+public class JobSearchServlet extends HttpServlet {
+    private Object session;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +34,7 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -62,41 +64,41 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        System.out.println("do post invoked");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        PrintWriter out = response.getWriter();
+        System.out.println("IN searchroom ");
 
-        UserService us = new UserService();
-
+        JobService jobService = new JobService();
+        String category = request.getParameter("category");
+        if (category.equals("select")) {
+            category = null;
+        }
+        String type = request.getParameter("type");
+        if (type.equals("select")) {
+            type = null;
+        }
+        String location = request.getParameter("location");
+        if (location.equals("select")) {
+            location = null;
+        }
+        HttpSession session = request.getSession();
+        int count = 0;
+        System.out.println("Category in servlet"+category);
         try {
-
-            System.out.println("In welcome");
-            System.out.println("username in login servlet "+username);
-            String email = us.validateuserlogin(username, password);
-            System.out.println("Afetr validation "+email);
-            if (email != null) {
-
-                HttpSession session = request.getSession();
-                session.setAttribute("email", email);
-                RequestDispatcher rd = request
-                        .getRequestDispatcher("JobSearch.jsp");
-                rd.forward(request, response);
-
+            ArrayList<Job> jobList = jobService.searchJob(type, category, location);
+//            System.out.println("Job list is "+jobList.get(0).jobCategory);
+            RequestDispatcher rd = request.getRequestDispatcher("jobResults.jsp");
+            if(jobList.size()>0) {
+                count = jobList.size();
             } else {
-
-                RequestDispatcher rd = request
-                        .getRequestDispatcher("Login.jsp");
-                response.getWriter()
-                        .write("<html><body onload=\"alert('Enter right Credentials')\"></body></html>");
-                rd.include(request, response);
-            }
+                count = 0;
+            }  
+            session.setAttribute("jobCount", count);
+            session.setAttribute("jobList", jobList);
+            rd.forward(request, response);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
-//    }
 
     /**
      * Returns a short description of the servlet.

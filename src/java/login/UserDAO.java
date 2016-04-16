@@ -82,11 +82,13 @@ public class UserDAO {
         String role;
         boolean status1;
         validatePS = connect
-                .prepareStatement("select password from student where emailid = ?");
+                .prepareStatement("select password from onlinejobportal.student where emailid = ?");
         validatePS.setString(1, username1);
+        System.out.println("in userdao after query");
+        
         rs = validatePS.executeQuery();
         while (rs.next()) {
-
+            System.out.println("in while user dao");
             password1 = rs.getString("password");
             System.out.println("Verified password :" + password1);
         }
