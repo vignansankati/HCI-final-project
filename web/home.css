@@ -1,0 +1,316 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 12, 2016, 12:17:24 AM
+    Author     : S525020
+*/
+
+.send_btn{
+    border-radius: 0.4em;
+  height: 1.5em; 
+    width: 5em; 
+    font-size: 1em;
+}
+
+.upload_btn{
+  border-radius: 0.4em;
+  height: 2em; 
+    width: 6em; 
+    font-size: 1em;
+}
+
+
+.req{
+    color: red;
+}
+
+.title{
+    display:inline;
+    margin-left: 6em;
+    font-family: calibri;
+    font-size: 3em;
+    font-weight: bolder;
+
+}
+.logo{
+    margin-left: 18em;
+}
+/*#title{
+    text-align:center;
+    font-style : calibri;
+}*/
+body{
+    background-color: lavender;
+}
+
+/*------Menu-------*/
+ul {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    //    position: fixed;
+    background-color: slategrey;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+
+
+li a {
+    text-align: justify;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: calibri;
+    font-weight: normal;
+    font-size: 1.1em;
+   
+}
+
+li a:hover:not(.active) {
+    background-color: limegreen;
+}
+
+.active {
+    background-color: limegreen;
+}
+
+
+
+ .search{
+   
+            border-radius: 1em;
+            font-size: 1em;
+            padding: 3px ;
+            
+        }
+   
+/*--------search button----*/
+#overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #999;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: 100;
+}
+#popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: lavender;
+    width: 600px;
+    height: 600px;
+    margin-left: -300px; /*Half the value of width to center div*/
+    margin-top: -300px; /*Half the value of height to center div*/
+    z-index: 200;
+}
+
+#popupclose {
+    border-radius: 0.4em;
+    height: 2em; 
+    width: 6em; 
+    font-size: 1em;
+    
+}
+
+.popClose{
+    border-radius: 0.4em;
+     color: white;
+    height: 2em; 
+    width: 8em; 
+    font-size: 1em;
+    margin-top: 6em;
+    margin-left: 14em;
+    background-color: #f44336;
+}
+
+.popupcontent {
+    padding: 10px;
+    font-family: verdana;
+}
+
+#Sbutton {
+    border-radius: 0.5em;
+    cursor: pointer;
+    margin-left: 78em;
+    padding: 4px ;
+      color: white;
+     background-color: tomato;
+}
+
+.logo{
+    margin-left: 4em;
+}
+
+.popupcontent_text{
+    font-family: Verdana;
+    font-size: 1.6em;
+}
+/*--------search button-------*/
+
+
+/*----------------Acordion css-----------*/
+button.accordion {
+    background-color: lightblue;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+font-family: verdana;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: LightGreen ;
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: FloralWhite;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+font-family: verdana;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 500px;  
+}
+
+
+/*---------about us--------*/
+.left_segment {
+    
+    width: 640px;
+    height: 430px;
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 0;
+    float: left;
+        background-color: bisque;
+        font-family: calibri;
+        font-size: 1.2em;
+        
+}
+.right_segment {
+    
+    width: 640px;
+    height: 430px;
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 0;
+    float: right;
+    background-color: khaki;
+    font-family: calibri;
+     font-size: 1.2em;
+    
+}
+
+
+/*------ appliedjobs tables--------*/
+table {
+    width:90%;
+}
+table, th, td {
+    border: 1px black; //solid
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+table.table2 tr:nth-child(even) {
+    background-color: #eee;
+}
+table.table2 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table.table2 th	{
+    background-color: dimgray;
+    color: white;
+    font-family: calibri;
+    font-weight: normal;
+    font-size: 1.01em;
+}
+
+.table2{
+    margin-left: 4em;
+}
+
+.update_content{
+    font-family:calibri; 
+    font-size: 1em;
+    text-align: center;
+  
+}
+
+.job_content_ddb{
+     font-size: 0.96em;
+     border-radius: 0.4em;
+     
+}
+
+
+.update_txtbox{
+    border-radius: 0.4em;
+        height: 1.4em; 
+   
+}
+
+label{
+    font-family: Verdana;
+    font-size: 0.9em;
+    font-weight: bold; 
+}
+
+
+.jobSearchBtn {
+    border-radius: 0.5em;
+    cursor: pointer;
+    padding: 4px ;
+    width: 6em;
+    background-color: mediumseagreen;
+    color: white;
+        
+}
+
+
+/*-------maps-----------*/
+.maps{
+    width:250px;
+    height:190px;
+    border:1px solid black;
+}

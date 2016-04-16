@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="shortcut icon" href="ojp.png" type="image/x-icon" /> 
+        <title>Online Job Portal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link type="text/css" rel="stylesheet" href="welcome.css">
+        <script type="text/javascript" src="contactus.js"></script>
+            <script src="http://maps.googleapis.com/maps/api/js"> </script>
+        
+    </head>
+    <body>
+
+         <header>
+            
+ <!--------search button------->
+    
+<span id="maincontent">
+    <span> <a href="welcome.html">
+                <img src="ojp.png" alt="logo" class='logo' width="72" height="55">
+            </a>
+            <span class='title' > Online Job Portal </span>
+            
+    <button type="button" value="Search"  id="Sbutton">Search</button>
+</span>
+        <input type="text" name="search" class='search' placeholder="search"> </span>
+        
+<span id="overlay"></span>
+<span id="popup">
+    
+    <span class="popupcontent"><br><br>
+        <span class="popupcontent_text">
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>SORRY! </strong><br><br>
+         &nbsp;&nbsp; Search option is not available right now</span>
+        <br><br>
+        <img src="Coming-Soon.png" alt="logo" class='logo' width="500" height="250">
+    </span>
+    <span class="popupcontrols">
+        <span id="popupclose"><input type="button" value="close search" class="popClose"></span>
+    </span>
+</span>
+
+<!--------search button------->
+
+
+<!--------search button Java script------->
+<script type="text/javascript">
+    
+    // Initialize Variables
+    var closePopup = document.getElementById("popupclose");
+    var overlay = document.getElementById("overlay");
+    var popup = document.getElementById("popup");
+    var Sbutton = document.getElementById("Sbutton");
+    // Close Popup Event
+    closePopup.onclick = function() {
+        overlay.style.display = 'none';
+        popup.style.display = 'none';
+    };
+    // Show Overlay and Popup
+    Sbutton.onclick = function() {
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
+    }
+    </script>
+    <!--------search button Java script------->
+ 
+        </header>
+
+        <nav>
+            <ul class="topnav">
+                <li><a href="welcome.html">Home</a></li>
+                <li><a class="active" href="contactus_welcome.html">Contact us</a></li>
+                <li><a href="aboutus_welcome.html">About us</a></li>
+                <li><a href="Help_welcome.html">Help</a></li>
+                <li><a href="home.html">Temporary login</a></li>
+                <li style="float:right" class='right'><a href="Registration.html">Signup</a></li>
+                <li style="float:right" class='right'><a href="welcome.html">Login</a></li>
+
+            </ul>
+        </nav>
+        <br>
+        
+                       <div class="left_segment">
+
+            <p>
+                We are here to answer any questions you may have about our Online Job Portal. Reach out to us and we'll respond as soon as we can.
+            </p>
+
+            (<span class="req">*</span>)<strong> Required fields</strong>
+            <br><br>
+
+            <table>
+                <tr>
+                    <td><span class="req">*</span>Name :</td>
+                    <td>
+                        <input type="text" name="name" id="C_name">
+                    </td>    
+                </tr>
+
+                <tr>
+                    <td><span class="req">*</span>Email Id :</td>
+                    <td>
+                        <input type="text" name="name" id="C_email">
+                    </td>    
+                </tr>
+
+                <tr>
+                    <td><span class="req">*</span>Message:</td>
+                    <td>
+                        <textarea rows="6" cols="50" placeholder="Type here..." id="C_message">
+                        </textarea>
+                    </td>    
+                </tr>
+                <tr><td></td>
+                    <td>
+                        <button type="button" class="send_btn" id="send_btn">Send</button>
+                    </td></tr>
+            </table>
+
+
+        </div>        
+
+        <div class="right_segment">
+            <br>
+            <strong>Contact us:</strong><br><br>
+            <table>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        info@clique.com
+                    </td>    
+                </tr>
+
+                <tr>
+                    <td>Telephone:</td>
+                    <td>
+                        +1 (660) 090 9999
+                    </td>    
+                </tr>
+
+                <tr>
+                    <td>Skype:</td>
+                    <td>
+                        cliquejobportal
+                    </td>    
+                </tr>
+                <tr><td>Office Address:</td>
+                    <td>
+                        
+                       &nbsp; 2800 Lonetree Parkway<br>
+                       &nbsp; Kansas City, MO 64117
+
+                    </td></tr>
+                <tr><td></td>
+                    
+                    <td>
+<div id="googleMap" class="maps"></div>                        
+
+                    </td></tr>
+            </table>
+        </div>
+
+
+<!--------- Maps Script------>
+<script>
+var myCenter=new google.maps.LatLng(39.044556,-94.589462);
+
+function initialize()
+{
+var mapProp = {
+  center: myCenter,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+  position: myCenter,
+  title:'Click to zoom'
+  });
+
+marker.setMap(map);
+
+// Zoom to 9 when clicking on marker
+google.maps.event.addListener(marker,'click',function() {
+  map.setZoom(9);
+  map.setCenter(marker.getPosition());
+  });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+         </body>
+</html>

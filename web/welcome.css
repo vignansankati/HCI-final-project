@@ -1,0 +1,356 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 11, 2016, 5:55:47 PM
+    Author     : S525020
+*/
+.send_btn{
+    border-radius: 0.4em;
+  height: 1.5em; 
+    width: 5em; 
+    font-size: 1em;
+}
+
+.title{
+    display:inline;
+    margin-left: 6em;
+    font-family: calibri;
+    font-size: 3em;
+    font-weight: bolder;
+
+}
+.logo{
+    margin-left: 18em;
+}
+/*#title{
+    text-align:center;
+    font-style : calibri;
+}*/
+body{
+     background-color: lavender;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+     //position: fixed;
+    background-color: slategrey;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: 1px solid #bbb;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: calibri;
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+li a:hover:not(.active) {
+    background-color: limegreen;
+}
+
+.active {
+    background-color: limegreen;
+}
+
+.home_lables{
+    font-family: verdana;
+    
+    font-size: 1.2em;
+}
+
+
+.section1{
+   height:500px;
+   width:700px;
+   float:left;
+}
+.aside{
+    height:500px;
+    width:800px;
+    float:right;
+    
+}
+
+.login_txtbox{
+    border-radius: 0.4em;
+        height: 2em; 
+    width: 14em;
+}
+
+.login_btn{
+    border-radius: 0.4em;
+  height: 2em; 
+    width: 8em; 
+    font-size: 1em;   
+}
+
+.req{
+    color: red;
+}
+
+.reg_btn{
+    border-radius: 0.4em;
+  height: 2em; 
+    width: 6em; 
+    font-size: 1em;
+}
+.reg_title{
+font-family:calibri; 
+text-align: center
+}
+
+.reg_content{
+    font-family:calibri; 
+    font-size: 1.2em;
+}
+.reg_content_ddb{
+     font-size: 0.8em;
+     border-radius: 0.4em;
+}
+.reg_txtbox{
+    border-radius: 0.4em;
+        height: 1.4em; 
+   
+}
+    
+
+
+/*-------tool tip ----*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    //border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 20em;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+    font-size: 0.8em;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+    
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/*---search-----*/
+ .search{
+            border-radius: 1em;
+            font-size: 1em;
+            padding: 3px ;
+            
+        }
+
+   
+/*--------search button----*/
+#overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #999;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: 100;
+}
+#popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: lavender;
+    width: 600px;
+    height: 600px;
+    margin-left: -300px; /*Half the value of width to center div*/
+    margin-top: -300px; /*Half the value of height to center div*/
+    z-index: 200;
+}
+
+#popupclose {
+    border-radius: 0.4em;
+    height: 2em; 
+    width: 6em; 
+    font-size: 1em;
+    
+}
+
+.popClose{
+    border-radius: 0.4em;
+     color: white;
+    height: 2em; 
+    width: 8em; 
+    font-size: 1em;
+    margin-top: 6em;
+    margin-left: 14em;
+    background-color: #f44336;;
+}
+
+.popupcontent {
+    padding: 10px;
+    font-family: verdana;
+}
+
+#Sbutton {
+    border-radius: 0.5em;
+    cursor: pointer;
+    margin-left: 78em;
+    padding: 4px ;
+    color: white;
+     background-color: tomato;
+}
+
+.logo{
+    margin-left: 4em;
+}
+
+.popupcontent_text{
+    font-family: Verdana;
+    font-size: 1.6em;
+}
+
+
+/*----------------Acordion css-----------*/
+button.accordion {
+    background-color: lightblue;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+font-family: verdana;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: LightGreen ;
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: FloralWhite;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+font-family: verdana;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 500px;  
+}
+
+
+
+/*---------about us--------*/
+.left_segment {
+    
+    width: 640px;
+    height: 400px;
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 0;
+    float: left;
+        background-color: bisque;
+        font-family: calibri;
+        font-size: 1.2em;
+        text-align: justify;
+}
+.right_segment {
+    text-align: justify;
+    width: 640px;
+    height: 400px;
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 0;
+    float: right;
+    background-color: khaki;
+    font-family: calibri;
+     font-size: 1.2em;
+    
+}
+
+
+/*--------- My profile(forms) table content-------*/
+.update_content{
+    font-family:calibri; 
+    font-size: 1.2em;
+}
+.update_content_ddb{
+     font-size: 0.8em;
+     border-radius: 0.4em;
+}
+.update_txtbox{
+    border-radius: 0.4em;
+        height: 1.4em; 
+   
+}
+
+
+.upload_btn{
+    border-radius: 0.4em;
+  height: 2em; 
+    width: 6em; 
+    font-size: 1em;
+}
+
+
+/*-------maps-----------*/
+.maps{
+    width:300px;
+    height:200px;
+    border:1px solid black;
+}
