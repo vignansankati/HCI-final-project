@@ -68,7 +68,8 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         PrintWriter out = response.getWriter();
         ArrayList<MyJobs> myJobs = new ArrayList<>();
-                
+        ArrayList<User> myProfile = new ArrayList<>();
+        
         UserService us = new UserService();
 
         try {
@@ -79,10 +80,14 @@ public class LoginServlet extends HttpServlet {
             System.out.println("Afetr validation "+email);
             if (email != null) {
                 myJobs = us.getMyJobs(username);
+                myProfile = us.getMyProfile(username);
+                
                 System.out.println("myJobs id "+myJobs.size());
                 HttpSession session = request.getSession();
                 session.setAttribute("email", email);
                 session.setAttribute("myAppliedJobs", myJobs);
+                session.setAttribute("myProfile", myProfile);
+                
                 RequestDispatcher rd = request
                         .getRequestDispatcher("JobSearch.jsp");
                 rd.forward(request, response);

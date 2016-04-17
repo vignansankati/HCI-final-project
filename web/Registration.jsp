@@ -92,7 +92,7 @@ and open the template in the editor.
 
         <h1 class='reg_title'>Registration form </h1>
 
-        <form action="RegistrationServlet" method="post">
+        <form action="RegistrationServlet" method="post" enctype="multipart/form-data">
             <fieldset>
                 <center>  
                     <table class='reg_content'>
@@ -206,6 +206,7 @@ and open the template in the editor.
                         <tr>
                             <td><br>
                                 <span class="req">*</span>Resume Upload: </td>
+                            <td><input type="file" name="resume" size="50"/></td>
                             <td>
 
                             <td>

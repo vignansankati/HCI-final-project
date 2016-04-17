@@ -1,5 +1,7 @@
 package login;
 
+import javax.servlet.http.Part;
+
 public class User {
 
     private String firstName;
@@ -12,6 +14,15 @@ public class User {
     private String securityQuestion2;
     private String answer2;
     private String studentType;
+    private Part resume;
+
+    public Part getResume() {
+        return resume;
+    }
+
+    public void setResume(Part resume) {
+        this.resume = resume;
+    }
 
     public String getFirstName() {
         return firstName;

@@ -1,5 +1,6 @@
 package login;
 
+import java.io.InputStream;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
@@ -8,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.Part;
 
 import login.DBConnection;
 import login.User;
@@ -52,9 +54,23 @@ public class UserDAO {
         PreparedStatement seqPS = null;
 
         ResultSet rs = null;
+        
+        InputStream inputStream = null; // input stream of the upload file
+         
+        // obtains the upload file part in this multipart request
+        Part filePart = user.getResume();
+        if (filePart != null) {
+            // prints out some information for debugging
+            System.out.println(filePart.getName());
+            System.out.println(filePart.getSize());
+            System.out.println(filePart.getContentType());
+             
+            // obtains input stream of the upload file
+            inputStream = filePart.getInputStream();
+        }
 
         createCustomerPS = connect
-                .prepareStatement("insert into student values(?,?,?,?,?,?,?,?,?,?)");
+                .prepareStatement("insert into student values(?,?,?,?,?,?,?,?,?,?,?)");
         createCustomerPS.setString(1, user.getFirstName());
         createCustomerPS.setString(2, user.getLastName());
         createCustomerPS.setString(3, user.getEmailid());
@@ -65,6 +81,11 @@ public class UserDAO {
         createCustomerPS.setString(8, user.getSecurityQuestion2());
         createCustomerPS.setString(9, user.getAnswer2());
         createCustomerPS.setString(10, user.getStudentType());
+        if (inputStream != null) {
+                // fetches input stream of the upload file for the blob column
+                createCustomerPS.setBlob(11, inputStream);
+            }
+        
         createCustomerPS.executeUpdate();
 
         DBConnection.closeConnection(connect);
@@ -119,6 +140,45 @@ public class UserDAO {
             }
         }
         return myJobs;
+    }
+
+    public ArrayList<User> getMyProfile(String username) throws SQLException {
+        ArrayList<User> myProfile = new ArrayList<>();
+        Connection connect = DBConnection.getConnection();
+        PreparedStatement validatePS = null;
+        ResultSet rs = null;
+
+        validatePS = connect
+                .prepareStatement("select firstname,lastname,emailid,phonenumber,security1,secanswer1,security2,secanswer2 from onlinejobportal.student where emailid = ?");
+        validatePS.setString(1, username);
+
+        rs = validatePS.executeQuery();
+        while (rs.next()) {
+            System.out.println("In while");
+            String fname = rs.getString(1);
+            String lname = rs.getString(2);
+            String email = rs.getString(3);
+            long phone = rs.getLong(4);
+            String secQ1 = rs.getString(5);
+            String secA1 = rs.getString(6);
+            String secQ2 = rs.getString(7);
+            String secA2 = rs.getString(8);
+            
+            User user = new User();
+
+            user.setFirstName(fname);
+            user.setLastName(lname);
+            user.setEmailid(email);
+            user.setPhonenumber(phone);
+            user.setSecurityQuestion1(secQ1);
+            user.setAnswer1(secA1);
+            user.setSecurityQuestion2(secQ2);
+            user.setAnswer2(secA2);
+
+            myProfile.add(user);
+        }
+
+        return myProfile;
     }
 
     public String validateuserlogin(String username1, String password)

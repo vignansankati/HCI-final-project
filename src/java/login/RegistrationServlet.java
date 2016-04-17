@@ -6,12 +6,15 @@
 package login;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -57,6 +60,7 @@ public class RegistrationServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+//    @MultipartConfig (location="/tmp", fileSizeThreshold=1024*1024,maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
@@ -78,6 +82,19 @@ public class RegistrationServlet extends HttpServlet {
         String security2 = request.getParameter("security2");
         String securityAnswer2 = request.getParameter("secAnswer2");
         String studentType = request.getParameter("studentType");
+        
+//        InputStream inputStream = null;
+        Part filePart = request.getPart("resume");
+        if (filePart != null) {
+            // prints out some information for debugging
+            System.out.println(filePart.getName());
+            System.out.println(filePart.getSize());
+            System.out.println(filePart.getContentType());
+             
+            // obtains input stream of the upload file
+//            inputStream = filePart.getInputStream();
+        }
+        
         // Forms bean object with the request object
         user.setFirstName(firstname);
         user.setLastName(lastname);
@@ -89,7 +106,9 @@ public class RegistrationServlet extends HttpServlet {
         user.setSecurityQuestion2(security2);
         user.setAnswer2(securityAnswer2);
         user.setStudentType(studentType);
+        user.setResume(filePart);
 
+        
         UserService userservice = new UserService();
 
         try {
