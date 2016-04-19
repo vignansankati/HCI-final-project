@@ -149,7 +149,7 @@ public class UserDAO {
         ResultSet rs = null;
 
         validatePS = connect
-                .prepareStatement("select firstname,lastname,emailid,phonenumber,security1,secanswer1,security2,secanswer2 from onlinejobportal.student where emailid = ?");
+                .prepareStatement("select firstname,lastname,emailid,phonenumber,security1,secanswer1,security2,secanswer2,Resume from onlinejobportal.student where emailid = ?");
         validatePS.setString(1, username);
 
         rs = validatePS.executeQuery();
@@ -163,6 +163,7 @@ public class UserDAO {
             String secA1 = rs.getString(6);
             String secQ2 = rs.getString(7);
             String secA2 = rs.getString(8);
+            Part resume = (Part) rs.getBlob(9);
             
             User user = new User();
 
@@ -174,7 +175,8 @@ public class UserDAO {
             user.setAnswer1(secA1);
             user.setSecurityQuestion2(secQ2);
             user.setAnswer2(secA2);
-
+            user.setResume(resume);
+            
             myProfile.add(user);
         }
 

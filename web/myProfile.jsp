@@ -4,6 +4,8 @@
     Author     : S525108
 --%>
 
+<%@page import="login.User"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -92,6 +94,14 @@
         <form>
             <fieldset>
                 <center>
+                    <%
+                        ArrayList<User> specialList = (ArrayList<User>) session.getAttribute("myProfile");
+//                System.out.println("Category in search 1 " + specialList.get(0).getJobCategory());
+                        if (specialList.size() > 0) {
+                    %>
+                    <%
+                        for (User spl : specialList) {
+                    %>
                     <table class='update_content'>
                         <tr>
                             <td>
@@ -170,6 +180,7 @@
                         <tr>
                             <td><br>
                                 Resume Upload: </td>
+                            <td><%=spl.getResume()%></td>
                             <td>
                                 <br>
 
@@ -188,6 +199,9 @@
                                 <br>
                             </td>
                         </tr>
+                        <%
+                                }
+                            }%>
 
                     </table>
 
