@@ -170,21 +170,21 @@
                 <%
                     for (Job spl : specialList) {
                 %>
+                <form name="result" action="JobApplyController" method="post">
                 <tr>
-                    <td><%=spl.getJobId()%></td>
+                    <td><%=spl.getJobId()%><input type="hidden" name="jobId" value="<%=spl.getJobId()%>"></td>
                     <td><%=spl.getJobTitle()%></td>
                     <td><%=spl.getJobDescription()%></td>
                     <td><%=spl.getPostingDate()%></td>
                     <td><%=spl.getLastDate()%></td>
-                    <td>Apply</td>
-                    
-
+                    <td><input type="submit" value="Apply"></td>
+                </form>
+                </td>
                 </tr>
 
                 <%
-                        }
                     }
-                else if(specialList.isEmpty()) {
+                } else if (specialList.isEmpty()) {
                     System.out.println("In job results jsp else");
                 %>
                 <h1 align="center">No jobs</h1>

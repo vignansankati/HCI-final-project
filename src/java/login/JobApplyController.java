@@ -6,8 +6,10 @@
 package login;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.Date;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,10 +19,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author S525108
+ * @author s525108
  */
-public class JobSearchServlet extends HttpServlet {
-    private Object session;
+public class JobApplyController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,7 +35,6 @@ public class JobSearchServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -64,40 +64,40 @@ public class JobSearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        System.out.println("IN searchroom ");
-
-        JobService jobService = new JobService();
-        String category = request.getParameter("category");
-        if (category.equals("select")) {
-            category = null;
-        }
-        String type = request.getParameter("type");
-        if (type.equals("select")) {
-            type = null;
-        }
-        String location = request.getParameter("location");
-        if (location.equals("select")) {
-            location = null;
-        }
         HttpSession session = request.getSession();
-        int count = 0;
-        System.out.println("Category in servlet"+category);
+
+        String email = (String) session.getAttribute("email");
+        System.out.println("Job id is "+request.getParameter("jobId"));
+        int jobId = Integer.parseInt(request.getParameter("jobId"));
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        String appliedDate = (String)dateFormat.format(date);
+        System.out.println(dateFormat.format(date));
+        String Status = "Processing";
+        
+        AppliedJobs br = new AppliedJobs();
+
+        br.setJobId(jobId);
+        br.setEmail(email);
+        br.setAppliedDate(appliedDate);
+        br.setStatus(Status);
+        
+        JobService js = new JobService();
+//        int book_id = 0;
         try {
-            ArrayList<Job> jobList = jobService.searchJob(type, category, location, (String)session.getAttribute("email"));
-//            System.out.println("Job list is "+jobList.get(0).jobCategory);
-            RequestDispatcher rd = request.getRequestDispatcher("jobResults.jsp");
-            if(jobList.size()>0) {
-                count = jobList.size();
-            } else {
-                count = 0;
-            }  
-            session.setAttribute("jobCount", count);
-            session.setAttribute("jobList", jobList);
-            rd.forward(request, response);
-        } catch (Exception e) {
+            js.applyJob(br);
+
+            System.out.println("room no in cntrole:" + br.getJobId());
+//            session.setAttribute("booking_id", booking_id);
+            session.setAttribute("roomno", br.getJobId());
+        } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+        RequestDispatcher rd = request.getRequestDispatcher("JobSearch.jsp");
+        rd.forward(request, response);
+
     }
 
     /**

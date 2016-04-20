@@ -80,12 +80,12 @@ and open the template in the editor.
 
         <nav>
             <ul>
-                <li><a  href="welcome.html">Home</a></li>
+                <li><a  href="Welcome.jsp">Home</a></li>
                 <li><a href="contactus_welcome.html">Contact us</a></li>
                 <li><a href="aboutus_welcome.html">About us</a></li>
                 <li><a href="Help_welcome.html">Help</a></li>
-                <li class="active" style="float:right"><a href="Registration.html">Signup</a></li>
-                <li style="float:right"><a href="welcome.html">Login</a></li>
+                <li class="active" style="float:right"><a href="Registration.jsp">Signup</a></li>
+                <li style="float:right"><a href="Welcome.jsp">Login</a></li>
 
             </ul>
         </nav>

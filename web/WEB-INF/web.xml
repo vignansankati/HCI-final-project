@@ -17,6 +17,10 @@
         <servlet-name>JobSearchServlet</servlet-name>
         <servlet-class>login.JobSearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>JobApplyController</servlet-name>
+        <servlet-class>login.JobApplyController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -42,10 +46,13 @@
     <welcome-file-list>
         <welcome-file>Registration.jsp</welcome-file>
     </welcome-file-list>
-
     <servlet-mapping>
         <servlet-name>JobSearchServlet</servlet-name>
         <url-pattern>/JobSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>JobApplyController</servlet-name>
+        <url-pattern>/JobApplyController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
