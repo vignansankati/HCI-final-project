@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -96,8 +97,9 @@ public class LoginServlet extends HttpServlet {
 
                 RequestDispatcher rd = request
                         .getRequestDispatcher("Login.jsp");
+//                JOptionPane.showMessageDialog(null, "A basic JOptionPane message dialog");
                 response.getWriter()
-                        .write("<html><body onload=\"alert('Enter right Credentials')\"></body></html>");
+                        .write("<html><body onload=\"alert('Please provide correct username/password')\"></body></html>");
                 rd.include(request, response);
             }
         } catch (Exception e) {

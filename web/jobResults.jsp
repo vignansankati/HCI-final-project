@@ -78,12 +78,12 @@
         <div>
             <nav>
                 <ul>
-                    <li><a class="active" href="home.html">Home</a></li>
-                    <li><a href="appliedjobs.html">Applied Jobs</a></li>
+                    <li><a class="active" href="JobSearch.jsp">Home</a></li>
+                    <li><a href="appliedjobs.jsp">Applied Jobs</a></li>
                     <li><a href="Consultancies.html">Consultancies</a></li>
                     <li><a href="help.html">Help</a></li>
                     <li><a href="contactus.html">Contact us</a></li>
-                    <li><a href="myprofile.html">My profile</a></li>
+                    <li><a href="myProfile.jsp">My profile</a></li>
                     <li style="float:right" class='right'><a href="Welcome.jsp">Logout</a></li>
 
                 </ul>
@@ -170,13 +170,14 @@
                 <%
                     for (Job spl : specialList) {
                 %>
-                <form name="result" action="JobApplyController" method="post">
+                <form action="JobApplyController" method="post">
                 <tr>
                     <td><%=spl.getJobId()%><input type="hidden" name="jobId" value="<%=spl.getJobId()%>"></td>
                     <td><%=spl.getJobTitle()%></td>
                     <td><%=spl.getJobDescription()%></td>
                     <td><%=spl.getPostingDate()%></td>
                     <td><%=spl.getLastDate()%></td>
+                    
                     <td><input type="submit" value="Apply"></td>
                 </form>
                 </td>

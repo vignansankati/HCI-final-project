@@ -5,14 +5,11 @@
         <group>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/JobSearchServlet.java</file>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/LoginServlet.java</file>
-            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/myProfile.jsp</file>
-            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/UserDAO.java</file>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/JobDAO.java</file>
-            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/JobSearch1.jsp</file>
-            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/UserService.java</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/JobApplyController.java</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/Login.jsp</file>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/jobResults.jsp</file>
-            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/JobService.java</file>
         </group>
     </open-files>
 </project-private>

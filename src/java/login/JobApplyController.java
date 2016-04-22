@@ -63,6 +63,10 @@ public class JobApplyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("In job apply servlet");
+                
+        
         processRequest(request, response);
         HttpSession session = request.getSession();
 
