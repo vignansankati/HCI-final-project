@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
-
 public class JobDAO {
 
     private Connection connection = null;
@@ -53,76 +52,123 @@ public class JobDAO {
         ArrayList<Integer> alreadyAppliedJobs = new ArrayList<>();
         System.out.println("in Job DAO");
         ResultSet ps = null;
-        
+
         try {
             connection = DBConnection.getConnection();
-            
+
             String query = "select jobid from onlinejobportal.appliedjobs where email=?";
             prepareStatement1 = connection.prepareStatement(query);
             prepareStatement1.setString(1, email);
             ps = prepareStatement1.executeQuery();
             while (ps.next()) {
                 int next = ps.getInt(1);
-                System.out.println("job id is "+next);
+                System.out.println("job id is " + next);
                 alreadyAppliedJobs.add(next);
             }
             String allIds = "";
-            
-            for(int i=0;i<alreadyAppliedJobs.size();i++) {
-                if(i<alreadyAppliedJobs.size()-1) {
+
+            for (int i = 0; i < alreadyAppliedJobs.size(); i++) {
+                if (i < alreadyAppliedJobs.size() - 1) {
                     allIds = allIds + alreadyAppliedJobs.get(i) + ",";
-                }
-                else {
+                } else {
                     allIds += alreadyAppliedJobs.get(i);
                 }
-                        
+
             }
-            System.out.println("joiis are "+allIds);
-            
-            if (category == null && location == null && type != null) {
-                String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobType=? and jobid not in ("+allIds+")";
-                prepareStatement1 = connection.prepareStatement(roomsearchQuery);
-                prepareStatement1.setString(1, type);
+            System.out.println("joiis are " + allIds);
+
+            if (allIds.equals("")) {
+                if (category == null && location == null && type != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobType=?";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, type);
 //                prepareStatement1.setString(2, allIds);
-            } else if (location == null && type == null && category != null) {
-                String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobCategory=? and jobid not in ("+allIds+")";
-                prepareStatement1 = connection.prepareStatement(roomsearchQuery);
-                prepareStatement1.setString(1, category);
+                } else if (location == null && type == null && category != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobCategory=?";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, category);
 //                prepareStatement1.setString(2, allIds);
-            } else if (category == null && type == null && location != null) {
-                String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where location=? and jobid not in ("+allIds+")";
-                prepareStatement1 = connection.prepareStatement(roomsearchQuery);
-                prepareStatement1.setString(1, location);
+                } else if (category == null && type == null && location != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where location=?";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, location);
 //                prepareStatement1.setString(2, allIds);
-            } else if (category == null && type != null && location != null) {
-                String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobType=? and location=? and jobid not in ("+allIds+")";
-                prepareStatement1 = connection.prepareStatement(roomsearchQuery);
-                prepareStatement1.setString(1, type);
-                prepareStatement1.setString(2, location);
+                } else if (category == null && type != null && location != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobType=? and location=?";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, type);
+                    prepareStatement1.setString(2, location);
 //                prepareStatement1.setString(3, allIds);
-            } else if (location == null && category != null && type != null) {
-                String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobCategory=? and jobType=? and jobid not in ("+allIds+")";
-                prepareStatement1 = connection.prepareStatement(roomsearchQuery);
-                prepareStatement1.setString(1, category);
-                prepareStatement1.setString(2, type);
+                } else if (location == null && category != null && type != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobCategory=? and jobType=?";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, category);
+                    prepareStatement1.setString(2, type);
 //                prepareStatement1.setString(3, allIds);
-            } else if (type == null && location != null && category != null) {
-                String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where location=? and jobCategory=? and jobid not in ("+allIds+")";
-                prepareStatement1 = connection.prepareStatement(roomsearchQuery);
-                prepareStatement1.setString(1, location);
-                prepareStatement1.setString(2, category);
+                } else if (type == null && location != null && category != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where location=? and jobCategory=?";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, location);
+                    prepareStatement1.setString(2, category);
 //                prepareStatement1.setString(3, allIds);
-            } else if (type == null && category == null && location == null) {
-                String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobid not in ("+allIds+")";
-                prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                } else if (type == null && category == null && location == null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
 //                prepareStatement1.setString(1, allIds);
-            } else {
-                String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobCategory=? and location=? and jobType=? and jobid not in ("+allIds+")";
-                prepareStatement1 = connection.prepareStatement(roomsearchQuery);
-                prepareStatement1.setString(1, category);
-                prepareStatement1.setString(2, location);
-                prepareStatement1.setString(3, type);
+                } else {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobCategory=? and location=? and jobType=?";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, category);
+                    prepareStatement1.setString(2, location);
+                    prepareStatement1.setString(3, type);
 //                prepareStatement1.setString(4, allIds);
+                }
+            } else {
+                if (category == null && location == null && type != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobType=? and jobid not in (" + allIds + ")";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, type);
+//                prepareStatement1.setString(2, allIds);
+                } else if (location == null && type == null && category != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobCategory=? and jobid not in (" + allIds + ")";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, category);
+//                prepareStatement1.setString(2, allIds);
+                } else if (category == null && type == null && location != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where location=? and jobid not in (" + allIds + ")";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, location);
+//                prepareStatement1.setString(2, allIds);
+                } else if (category == null && type != null && location != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobType=? and location=? and jobid not in (" + allIds + ")";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, type);
+                    prepareStatement1.setString(2, location);
+//                prepareStatement1.setString(3, allIds);
+                } else if (location == null && category != null && type != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobCategory=? and jobType=? and jobid not in (" + allIds + ")";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, category);
+                    prepareStatement1.setString(2, type);
+//                prepareStatement1.setString(3, allIds);
+                } else if (type == null && location != null && category != null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where location=? and jobCategory=? and jobid not in (" + allIds + ")";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, location);
+                    prepareStatement1.setString(2, category);
+//                prepareStatement1.setString(3, allIds);
+                } else if (type == null && category == null && location == null) {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobid not in (" + allIds + ")";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+//                prepareStatement1.setString(1, allIds);
+                } else {
+                    String roomsearchQuery = "select jobid,qualification,jobDescription,postedDate,lastDate from onlinejobportal.job where jobCategory=? and location=? and jobType=? and jobid not in (" + allIds + ")";
+                    prepareStatement1 = connection.prepareStatement(roomsearchQuery);
+                    prepareStatement1.setString(1, category);
+                    prepareStatement1.setString(2, location);
+                    prepareStatement1.setString(3, type);
+//                prepareStatement1.setString(4, allIds);
+                }
             }
 
             rs = prepareStatement1.executeQuery();

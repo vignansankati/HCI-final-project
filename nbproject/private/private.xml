@@ -3,13 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/JobSearchServlet.java</file>
-            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/LoginServlet.java</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/contactus_welcome.html</file>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/JobDAO.java</file>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/JobApplyController.java</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/RegistrationServlet.java</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/JobSearch1.jsp</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/consultancy2.html</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/aboutus_welcome.html</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/contactus.html</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/JobSearchServlet.java</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/appliedjobs.jsp</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/Welcome.jsp</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/UserDAO.java</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/UserService.java</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/payment.html</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/Consultancies.html</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/LoginServlet.java</file>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/Login.jsp</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/JobSearch.jsp</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/consultancies.css</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/loading.gif</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/src/java/login/User.java</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/reset_password.html</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/myProfile.jsp</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/Registration.jsp</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/onlineCounseling.html</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/appliedjobs.html</file>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/help.html</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/myprofile.html</file>
             <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/jobResults.jsp</file>
+            <file>file:/C:/Users/S525108/Documents/GitHub/Online%20job%20portal/web/Help_welcome.html</file>
         </group>
     </open-files>
 </project-private>

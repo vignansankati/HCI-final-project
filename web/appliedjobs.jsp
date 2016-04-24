@@ -91,6 +91,11 @@
 
         </div>
         <br><br>
+        <%
+            ArrayList<MyJobs> specialList = (ArrayList<MyJobs>) session.getAttribute("myAppliedJobs");
+//                System.out.println("In applied jobs" + specialList.get(0).getJobId());
+            if (!specialList.isEmpty()) {
+        %>
         <table class="table2">
             <tr>
                 <th>Job ID</th>
@@ -99,11 +104,7 @@
                 <th>Applied Date</th>
                 <th>Status</th>
             </tr>
-            <%
-                ArrayList<MyJobs> specialList = (ArrayList<MyJobs>) session.getAttribute("myAppliedJobs");
-                System.out.println("In applied jobs" + specialList.get(0).getJobId());
-                if (specialList.size() > 0) {
-            %>
+
             <%
                 for (MyJobs spl : specialList) {
             %>
@@ -116,8 +117,15 @@
             </tr>
             <%
                     }
-                }
-            %>
+                }%>
         </table>
+        <%
+        if (specialList.isEmpty()) {
+        %>
+        <h1 align="center">You have not yet applied jobs. Please apply for jobs to view them.</h1>
+        <%
+            }
+        %>
+
     </body>
 </html>

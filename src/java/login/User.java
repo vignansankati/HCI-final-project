@@ -1,6 +1,7 @@
 package login;
 
 import javax.servlet.http.Part;
+import java.sql.Blob;
 
 public class User {
 
@@ -14,13 +15,13 @@ public class User {
     private String securityQuestion2;
     private String answer2;
     private String studentType;
-    private Part resume;
+    private Blob resume;
 
-    public Part getResume() {
+    public Blob getResume() {
         return resume;
     }
 
-    public void setResume(Part resume) {
+    public void setResume(Blob resume) {
         this.resume = resume;
     }
 

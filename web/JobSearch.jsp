@@ -71,6 +71,17 @@
                     popup.style.display = 'block';
                 }
             </script>
+            <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script type='text/javascript'>
+                            function invokeServlet()
+                            {
+                                // form a URL with the servlet name to be invoked
+                                var URL = 'http://localhost:8080/Online_job_portal/JobsAppliedServlet';
+
+                                // This line will inkove a servlet and reload your page
+                                location.href = URL;
+                            }
+            </script>
             <!--------search button Java script------->
 
         </header>
@@ -78,7 +89,7 @@
             <nav>
                 <ul>
                     <li><a class="active" href="JobSearch.jsp">Home</a></li>
-                    <li><a href="appliedjobs.jsp">Applied Jobs</a></li>
+                    <li><a href='#' onclick='invokeServlet()'>Applied Jobs</a></li>
                     <li><a href="Consultancies.html">Consultancies</a></li>
                     <li><a href="help.html">Help</a></li>
                     <li><a href="contactus.html">Contact us</a></li>

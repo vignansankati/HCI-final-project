@@ -8,6 +8,7 @@ package login;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.sql.Blob;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -84,12 +85,13 @@ public class RegistrationServlet extends HttpServlet {
         String studentType = request.getParameter("studentType");
         
 //        InputStream inputStream = null;
-        Part filePart = request.getPart("resume");
+        Blob filePart = (Blob)request.getAttribute("resume");
+//        getBlob("resume");
         if (filePart != null) {
             // prints out some information for debugging
-            System.out.println(filePart.getName());
-            System.out.println(filePart.getSize());
-            System.out.println(filePart.getContentType());
+//            System.out.println(filePart.getName());
+//            System.out.println(filePart.getSize());
+//            System.out.println(filePart.getContentType());
              
             // obtains input stream of the upload file
 //            inputStream = filePart.getInputStream();

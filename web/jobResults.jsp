@@ -154,7 +154,6 @@
             <h1 align="center">Job Details</h1>
             <%
                 ArrayList<Job> specialList = (ArrayList<Job>) session.getAttribute("jobList");
-                System.out.println("Category in search 1 " + specialList.get(0).getJobCategory());
                 if (!specialList.isEmpty()) {
             %>
             <table align="center" border="1" class="table2">
@@ -185,10 +184,12 @@
 
                 <%
                     }
-                } else if (specialList.isEmpty()) {
-                    System.out.println("In job results jsp else");
+                } %>
+                </table>
+                <%
+                if (specialList.isEmpty()) {
                 %>
-                <h1 align="center">No jobs</h1>
+                <h1 align="center">No jobs available with the search criteria. Please search again</h1>
                 <%
                     }
 

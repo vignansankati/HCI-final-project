@@ -1,6 +1,7 @@
 package login;
 
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
@@ -54,19 +55,19 @@ public class UserDAO {
         PreparedStatement seqPS = null;
 
         ResultSet rs = null;
-        
+
         InputStream inputStream = null; // input stream of the upload file
-         
+
         // obtains the upload file part in this multipart request
-        Part filePart = user.getResume();
+        Blob filePart = user.getResume();
         if (filePart != null) {
             // prints out some information for debugging
-            System.out.println(filePart.getName());
-            System.out.println(filePart.getSize());
-            System.out.println(filePart.getContentType());
-             
-            // obtains input stream of the upload file
-            inputStream = filePart.getInputStream();
+//            System.out.println(filePart.getName());
+//            System.out.println(filePart.getSize());
+//            System.out.println(filePart.getContentType());
+//
+//            // obtains input stream of the upload file
+//            inputStream = filePart.getInputStream();
         }
 
         createCustomerPS = connect
@@ -82,10 +83,10 @@ public class UserDAO {
         createCustomerPS.setString(9, user.getAnswer2());
         createCustomerPS.setString(10, user.getStudentType());
         if (inputStream != null) {
-                // fetches input stream of the upload file for the blob column
-                createCustomerPS.setBlob(11, inputStream);
-            }
-        
+            // fetches input stream of the upload file for the blob column
+            createCustomerPS.setBlob(11, inputStream);
+        }
+
         createCustomerPS.executeUpdate();
 
         DBConnection.closeConnection(connect);
@@ -115,9 +116,10 @@ public class UserDAO {
 
         PreparedStatement seqPS = null;
         for (int i : jobsArrayList) {
-            seqPS = connect.prepareStatement("select a.jobid,a.qualification,a.jobDescription,b.applieddate,b.status from onlinejobportal.job a,onlinejobportal.appliedjobs b where a.jobid = ? and b.jobid=?");
+            seqPS = connect.prepareStatement("select a.jobid,a.qualification,a.jobDescription,b.applieddate,b.status from onlinejobportal.job a,onlinejobportal.appliedjobs b where a.jobid = ? and b.jobid=? and b.email=?" );
             seqPS.setString(1, Integer.toString(i));
             seqPS.setString(2, Integer.toString(i));
+            seqPS.setString(3, username);
             rs = seqPS.executeQuery();
 
             while (rs.next()) {
@@ -163,8 +165,8 @@ public class UserDAO {
             String secA1 = rs.getString(6);
             String secQ2 = rs.getString(7);
             String secA2 = rs.getString(8);
-            Part resume = (Part) rs.getBlob(9);
-            
+            Blob resume = rs.getBlob(9);
+
             User user = new User();
 
             user.setFirstName(fname);
@@ -176,7 +178,7 @@ public class UserDAO {
             user.setSecurityQuestion2(secQ2);
             user.setAnswer2(secA2);
             user.setResume(resume);
-            
+
             myProfile.add(user);
         }
 

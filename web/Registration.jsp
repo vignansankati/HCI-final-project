@@ -206,7 +206,7 @@ and open the template in the editor.
                         <tr>
                             <td><br>
                                 <span class="req">*</span>Resume Upload: </td>
-                            <td><input type="file" name="resume" size="50"/></td>
+                            <td><input type="file" id="resume" name="resume" size="50"/></td>
                             <td>
 
                             <td>
