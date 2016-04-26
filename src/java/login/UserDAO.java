@@ -75,17 +75,17 @@ public class UserDAO {
         createCustomerPS.setString(1, user.getFirstName());
         createCustomerPS.setString(2, user.getLastName());
         createCustomerPS.setString(3, user.getEmailid());
-        createCustomerPS.setString(4, user.getEmailid());
+        createCustomerPS.setString(4, user.getPassword());
         createCustomerPS.setLong(5, user.getPhonenumber());
         createCustomerPS.setString(6, user.getSecurityQuestion1());
         createCustomerPS.setString(7, user.getAnswer1());
         createCustomerPS.setString(8, user.getSecurityQuestion2());
         createCustomerPS.setString(9, user.getAnswer2());
         createCustomerPS.setString(10, user.getStudentType());
-        if (inputStream != null) {
+//        if (inputStream != null) {
             // fetches input stream of the upload file for the blob column
             createCustomerPS.setBlob(11, inputStream);
-        }
+//        }
 
         createCustomerPS.executeUpdate();
 
@@ -151,7 +151,7 @@ public class UserDAO {
         ResultSet rs = null;
 
         validatePS = connect
-                .prepareStatement("select firstname,lastname,emailid,phonenumber,security1,secanswer1,security2,secanswer2,Resume from onlinejobportal.student where emailid = ?");
+                .prepareStatement("select firstname,lastname,emailid,phonenumber,security1,secanswer1,security2,secanswer2,studenttype,Resume from onlinejobportal.student where emailid = ?");
         validatePS.setString(1, username);
 
         rs = validatePS.executeQuery();
@@ -165,7 +165,8 @@ public class UserDAO {
             String secA1 = rs.getString(6);
             String secQ2 = rs.getString(7);
             String secA2 = rs.getString(8);
-            Blob resume = rs.getBlob(9);
+            String studentType = rs.getString(9);
+            Blob resume = rs.getBlob(10);
 
             User user = new User();
 
@@ -177,6 +178,7 @@ public class UserDAO {
             user.setAnswer1(secA1);
             user.setSecurityQuestion2(secQ2);
             user.setAnswer2(secA2);
+            user.setStudentType(studentType);
             user.setResume(resume);
 
             myProfile.add(user);

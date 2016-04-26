@@ -126,10 +126,9 @@ public class RegistrationServlet extends HttpServlet {
                         .write("<html><body onload=\"alert('Thanks for Registration !')\"></body></html>");
                 rd.forward(request, response);
             } else {
-                RequestDispatcher rd = request.getRequestDispatcher("Registration.jsp");
                 response.getWriter()
                         .write("<html><body onload=\"alert('Your username is already in use.Please choose another username !')\"></body></html>");
-
+                RequestDispatcher rd = request.getRequestDispatcher("Registration.jsp");
                 rd.include(request, response);
             }
         } catch (Exception e) {

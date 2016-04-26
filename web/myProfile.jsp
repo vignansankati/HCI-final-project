@@ -114,7 +114,7 @@
                                 Email Id:
                             </td>
                             <td>
-                                <input type="text" name="emailid" placeholder="email id" class='update_txtbox' id="emailid"><br>
+                                <input type="text" name="emailid" placeholder="email id" class='update_txtbox' id="emailid" value="<%=spl.getEmailid()%>" readonly="true"><br>
                             </td>
 
                         </tr>

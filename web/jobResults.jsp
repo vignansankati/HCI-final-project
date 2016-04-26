@@ -176,7 +176,6 @@
                     <td><%=spl.getJobDescription()%></td>
                     <td><%=spl.getPostingDate()%></td>
                     <td><%=spl.getLastDate()%></td>
-                    
                     <td><input type="submit" value="Apply"></td>
                 </form>
                 </td>

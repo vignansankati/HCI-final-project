@@ -87,6 +87,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("email", email);
                 session.setAttribute("myAppliedJobs", myJobs);
+                session.setAttribute("studentType", myProfile.get(0).getStudentType());
                 session.setAttribute("myProfile", myProfile);
                 
                 RequestDispatcher rd = request

@@ -83,7 +83,8 @@ public class JobSearchServlet extends HttpServlet {
         int count = 0;
         System.out.println("Category in servlet"+category);
         try {
-            ArrayList<Job> jobList = jobService.searchJob(type, category, location, (String)session.getAttribute("email"));
+            String studentType = (String)session.getAttribute("studentType");
+            ArrayList<Job> jobList = jobService.searchJob(type, category, location, (String)session.getAttribute("email"),studentType);
 //            System.out.println("Job list is "+jobList.get(0).jobCategory);
             RequestDispatcher rd = request.getRequestDispatcher("jobResults.jsp");
             if(jobList.size()>0) {

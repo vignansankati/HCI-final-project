@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class JobService {
 
-    public ArrayList<Job> searchJob(String type, String category, String location, String email) {
+    public ArrayList<Job> searchJob(String type, String category, String location, String email, String studentType) {
         // TODO Auto-generated method stub
         JobDAO jobDAO = new JobDAO();
-        ArrayList<Job> specialList = jobDAO.searchJob(type, category, location, email);
+        ArrayList<Job> specialList = jobDAO.searchJob(type, category, location, email, studentType);
         return specialList;
     }
 
