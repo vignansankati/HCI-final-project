@@ -94,12 +94,14 @@ public class JobApplyController extends HttpServlet {
             System.out.println("room no in cntrole:" + br.getJobId());
 //            session.setAttribute("booking_id", booking_id);
             session.setAttribute("roomno", br.getJobId());
+            
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("JobSearch.jsp");
+        
+        RequestDispatcher rd = request.getRequestDispatcher("applySuccessful.jsp");
         rd.forward(request, response);
 
     }

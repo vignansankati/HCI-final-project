@@ -100,7 +100,7 @@ public class LoginServlet extends HttpServlet {
                         .getRequestDispatcher("Login.jsp");
 //                JOptionPane.showMessageDialog(null, "A basic JOptionPane message dialog");
                 response.getWriter()
-                        .write("<html><body onload=\"alert('Please provide correct username/password')\"></body></html>");
+                        .write("<html><body onload=\"alert('Sorry, the username and password you entered do not match with our records. Please try again.')\"></body></html>");
                 rd.include(request, response);
             }
         } catch (Exception e) {

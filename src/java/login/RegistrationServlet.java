@@ -123,7 +123,7 @@ public class RegistrationServlet extends HttpServlet {
                 userservice.addUser(user);
                 RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
                 response.getWriter()
-                        .write("<html><body onload=\"alert('Thanks for Registration !')\"></body></html>");
+                        .write("<html><body onload=\"alert('Thanks for Registration!')\"></body></html>");
                 rd.forward(request, response);
             } else {
                 response.getWriter()

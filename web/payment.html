@@ -28,7 +28,7 @@ and open the template in the editor.
             <!--------search button------->
 
             <span id="maincontent">
-                <span> <a href="home.html">
+                <span> <a href="JobSearch.jsp">
                         <img src="ojp.png" alt="logo" class='logo' width="72" height="55">
                     </a>
                     <span class='title' > Online Job Portal </span>
@@ -86,12 +86,20 @@ and open the template in the editor.
                     <li><a href="appliedjobs.jsp">Applied Jobs</a></li>
                     <li><a class="active" href="Consultancies.html">Consultancies</a></li>
                     <li><a href="help.html">Help</a></li>
-                    <li><a href="contactus.html">Contact us</a></li>
-                    <li><a href="myProfile.jsp">My profile</a></li>
-                    <li style="float:right" class='right'><a href="Welcome.jsp">Logout</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="myProfile.jsp">My Profile</a></li>
+                    <li style="float:right" class='right'><a href="#openModal">Log Out</a></li>
 
                 </ul>
             </nav>
+            <div id="openModal" class="modalDialog">
+                <div>	<a href="#close" title="Close" class="close">X</a>
+
+                    <h2>Confirmation</h2>
+                    <p>Are you sure you want to log out?</p>
+                    <center><input type="button" value="yes" onclick="location.href = 'Login.jsp'" class="cnf_btn"></center>
+                </div>
+            </div>
 
         </div>
         <button type="button" value="back"  id="backbutton" onclick="location.href = 'consultancy2.html'">Back</button>
@@ -113,7 +121,7 @@ and open the template in the editor.
                         <h3>Billing Information</h3>
                     </td>
                     <td>
-                        <h5><span class="req">*</span>(required fields)</h5>
+                        <h5><span class="req">(*)</span>Required fields</h5>
                     </td>
                 </tr>
             </table>
@@ -126,27 +134,27 @@ and open the template in the editor.
                         <tr>
                             <td>
                                 <span class="req">*</span>First Name:<br>
-                                <input type="text" name="first_name" placeholder="first name" class='reg_txtbox' id="first_name" required>
+                                <input type="text" name="first_name" placeholder="first name" class='reg_txtbox' id="first_name" required/>
                             </td>
                             <td>
                                 Last name:<br>
-                                <input type="text" name="last_name" placeholder="last name" class='reg_txtbox' id="last_name" required><br> </td>
+                                <input type="text" name="last_name" placeholder="last name" class='reg_txtbox' id="last_name" ><br> </td>
                         </tr>
                         <tr>
                             <td>
                                 <span class="req">*</span>Email_Id:<br>
-                                <input type="text" name="email_id" placeholder="email id" class='reg_txtbox' id="email_id">
+                                <input type="text" name="email_id" placeholder="email id" class='reg_txtbox' id="email_id" required/>
                             </td>
                             <td>
                                 <span class="req">*</span>Mobile Number:<br>
-                                <input type="text" name="state" maxlength="14"  placeholder="(---)--- ----" class='reg_txtbox' id="mobile">
+                                <input type="text" name="state" maxlength="10"  placeholder="(---)--- ----" class='reg_txtbox' id="mobile" required/>
                             </td>
                         </tr>
 
                         <tr>
                             <td>
                                 <span class="req">*</span>Address: <br>
-                                <input type="text" name="address1" placeholder="Line 1" class='reg_txtbox' id="address1">
+                                <input type="text" name="address1" placeholder="Line 1" class='reg_txtbox' id="address1" required/>
                             </td>
                             <td>
                                 <br>
@@ -157,17 +165,17 @@ and open the template in the editor.
                         <tr>
                             <td>
                                 <span class="req">*</span>City:<br>
-                                <input type="text" name="city" placeholder="city" class='reg_txtbox' id="city">
+                                <input type="text" name="city" placeholder="city" class='reg_txtbox' id="city" required/>
                             </td>
                             <td>
                                 <span class="req">*</span>State:<br>
-                                <input type="text" name="state" maxlength="20" placeholder="state" class='reg_txtbox' id="state"> 
+                                <input type="text" name="state" maxlength="20" placeholder="state" class='reg_txtbox' id="state" required/> 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <span class="req">*</span>Country:<br>
-                                <input type="text" name="state" maxlength="20" placeholder="country" class='reg_txtbox' id="country"> 
+                                <input type="text" name="state" maxlength="20" placeholder="country" class='reg_txtbox' id="country" required/> 
                             </td>
                             <td>
                                 <span class="req">*</span>Zip:<br>
@@ -225,25 +233,25 @@ and open the template in the editor.
                             <td>
                                 <select class='reg_content_ddb' id="mm">
                                     <option value="m0">Month</option>
-                                    <option value="m1">01</option><option value="m2">02</option>
-                                    <option value="m3">03</option><option value="m4">04</option>
-                                    <option value="m5">05</option><option value="m6">06</option>
-                                    <option value="m7">07</option><option value="m8">08</option>
-                                    <option value="m9">09</option><option value="m10">10</option>
-                                    <option value="m11">11</option><option value="m12">12</option>
+                                    <option value="m1">01 Jan</option><option value="m2">02 Feb</option>
+                                    <option value="m3">03 Mar</option><option value="m4">04 Apr</option>
+                                    <option value="m5">05 May</option><option value="m6">06 Jun</option>
+                                    <option value="m7">07 Jul</option><option value="m8">08 Aug</option>
+                                    <option value="m9">09 Sep</option><option value="m10">10 Oct</option>
+                                    <option value="m11">11 Nov</option><option value="m12">12 Dec</option>
                                 </select>
                                 &nbsp;&nbsp;
-                                <select class='reg_content_ddb' id="yy">
-                                    <option value="y0">Year</option>
-                                    <option value="y1">2015</option><option value="y2">2016</option>
-                                    <option value="y3">2017</option><option value="y4">2018</option>
-                                    <option value="y5">2019</option><option value="y6">2020</option>
-                                    <option value="y7">2021</option><option value="y8">2022</option>
-                                    <option value="y9">2023</option><option value="y10">2024</option>
-                                    <option value="y11">2025</option><option value="y12">2026</option>
+                                <select class='reg_content_ddb' id="yy" required/>
+                        <option value="y0">Year</option>
+                        <option value="y2">2016</option>
+                        <option value="y3">2017</option><option value="y4">2018</option>
+                        <option value="y5">2019</option><option value="y6">2020</option>
+                        <option value="y7">2021</option><option value="y8">2022</option>
+                        <option value="y9">2023</option><option value="y10">2024</option>
+                        <option value="y11">2025</option><option value="y12">2026</option>
 
-                                </select>
-                            </td>
+                        </select>
+                        </td>
                         </tr>
 
                         <tr>
@@ -254,7 +262,7 @@ and open the template in the editor.
                             </td>
                             <td>
                                 <div class="tooltip2">
-                                    <input type="text" name="cvv" placeholder="XXX" class='reg_txtbox' id="cvv" size="6" maxlength="3" required><br>
+                                    <input type="password" name="cvv" placeholder="XXX" class='reg_txtbox' id="cvv" size="6" maxlength="3" required/><br>
                                     <span class="tooltiptext2"><img src="cvv.jpg" height="55" width="100"></span>
                                 </div>
                             </td>
@@ -265,21 +273,20 @@ and open the template in the editor.
                             <td></td>
                             <td>
 
-                                <button type="button" value="pay"  id="paybutton">Pay</button><br><br>
+                                <button type="button" value="pay" class="paybutton"  id="paybutton">Pay</button><br><br>
                                 <script>
                                     $("#paybutton").click(function () {
                                         $("#right_segment1").hide();
                                     });
                                     function viewNext() {
-                                        alert('Hai');
                                         $('#right_segment1').hide();
 //                                        document.getElementsByClassName('right_segment1')
-                                        
-                                            setTimeout(function () {
-                                                window.location.href = 'Consultancies.html'
-                                            }, 10000);
-                                            $('#right_segment1').html('<img src = "loading.gif"/>');
-                                        
+
+                                        setTimeout(function () {
+                                            window.location.href = 'Consultancies.html'
+                                        }, 10000);
+                                        $('#right_segment1').html('<img src = "loading.gif"/>');
+
                                     }
 
                                     //                             $('#content').load("orderrecceipt.html");

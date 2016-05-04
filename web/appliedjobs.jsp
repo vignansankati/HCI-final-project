@@ -24,7 +24,7 @@
             <!--------search button------->
 
             <span id="maincontent">
-                <span> <a href="home.html">
+                <span> <a href="JobSearch.jsp">
                         <img src="ojp.png" alt="logo" class='logo' width="72" height="55">
                     </a>
                     <span class='title' > Online Job Portal </span>
@@ -74,21 +74,42 @@
             </script>
             <!--------search button Java script------->
 
+            <script type='text/javascript'>
+                function invokeServlet()
+                {
+                    // form a URL with the servlet name to be invoked
+                    var URL = 'http://localhost:8080/Online_job_portal/JobsAppliedServlet';
+
+                    // This line will inkove a servlet and reload your page
+                    location.href = URL;
+                }
+            </script>
         </header>
         <div>
             <nav>
                 <ul>
-                    <li><a class="active" href="JobSearch.jsp">Home</a></li>
-                    <li><a href="appliedjobs.jsp">Applied Jobs</a></li>
+                    <li><a href="JobSearch.jsp">Home</a></li>
+                    <li><a class="active" a href='#' onclick='invokeServlet()'>Applied Jobs</a></li>
                     <li><a href="Consultancies.html">Consultancies</a></li>
                     <li><a href="help.html">Help</a></li>
-                    <li><a href="contactus.html">Contact us</a></li>
-                    <li><a href="myprofile.html">My profile</a></li>
-                    <li style="float:right" class='right'><a href="welcome.jsp">Logout</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="myProfile.jsp">My Profile</a></li>
+                    <li style="float:right" class='right'><a href="#openModal">Log Out</a></li>
 
                 </ul>
             </nav>
 
+            <div id="openModal" class="modalDialog">
+    <div>	<a href="#close" title="Close" class="close">X</a>
+
+        	<h2>Confirmation</h2>
+<p>Are you sure you want to log out?</p>
+<center><input type="button" value="yes" onclick="location.href = 'Login.jsp'" class="cnf_btn"></center>
+       
+    </div>
+</div>
+
+            
         </div>
         <br><br>
         <%

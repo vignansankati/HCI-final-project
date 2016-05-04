@@ -22,7 +22,7 @@ and open the template in the editor.
             <!--------search button------->
 
             <span id="maincontent">
-                <span> <a href="home.html">
+                <span> <a href="JobSearch.jsp">
                         <img src="ojp.png" alt="logo" class='logo' width="72" height="55">
                     </a>
                     <span class='title' > Online Job Portal </span>
@@ -73,20 +73,39 @@ and open the template in the editor.
             <!--------search button Java script------->
 
         </header>
+        <script type='text/javascript'>
+                function invokeServlet()
+                {
+                    // form a URL with the servlet name to be invoked
+                    var URL = 'http://localhost:8080/Online_job_portal/JobsAppliedServlet';
+
+                    // This line will inkove a servlet and reload your page
+                    location.href = URL;
+                }
+            </script>
         <div>
             <nav>
                 <ul>
-                    <li><a href="Welcome.jsp">Home</a></li>
-                    <li><a href="appliedjobs.jsp">Applied Jobs</a></li>
+                    <li><a href="JobSearch.jsp">Home</a></li>
+                    <li><a href='#' onclick='invokeServlet()'>Applied Jobs</a></li>
                     <li><a href="Consultancies.html">Consultancies</a></li>
                     <li><a href="help.html">Help</a></li>
-                    <li><a class="active" href="contactus.html">Contact us</a></li>
-                    <li><a href="myProfile.jsp">My profile</a></li>
-                    <li style="float:right" class='right'><a href="Welcome.jsp">Logout</a></li>
+                    <li><a class="active" href="contactus.html">Contact Us</a></li>
+                    <li><a href="myProfile.jsp">My Profile</a></li>
+                    <li style="float:right" class='right'><a href="#openModal">Log Out</a></li>
 
                 </ul>
             </nav>
+<div id="openModal" class="modalDialog">
+    <div>	<a href="#close" title="Close" class="close">X</a>
 
+        	<h2>Confirmation</h2>
+<p>Are you sure you want to log out?</p>
+<center><input type="button" value="yes" onclick="location.href = 'Login.jsp'" class="cnf_btn"></center>
+    </div>
+</div>
+
+            
         </div>
 <br>
 
@@ -99,33 +118,26 @@ and open the template in the editor.
             (<span class="req">*</span>)<strong> Required fields</strong>
             <br><br>
 
+           <form>
             <table>
-                <tr>
-                    <td><span class="req">*</span>Name :</td>
-                    <td>
-                        <input type="text" name="name" id="C_name">
-                    </td>    
+                <tr><td><span class="req">*</span>Name:</td>
+                    <td><input type="text" name="name" id="C_name"/></td>
                 </tr>
 
                 <tr>
-                    <td><span class="req">*</span>Email Id :</td>
-                    <td>
-                        <input type="text" name="name" id="C_email">
-                    </td>    
+                    <td><span class="req">*</span>Email Id:</td>
+                    <td><input type="text" name="name" id="C_email"/></td>    
                 </tr>
 
                 <tr>
-                    <td><span class="req">*</span>Message:</td>
-                    <td>
-                        <textarea rows="8" cols="40" placeholder="Type here..." id="C_message">
-                        </textarea>
-                    </td>    
+                    <td><span class="req"></span>Message:</td>
+                    <td><textarea rows="6" cols="50" placeholder="Type here..." id="C_message"></textarea></td>    
                 </tr>
                 <tr><td></td>
-                    <td>
-                        <button type="button" class="send_btn" id="send_btn">Send</button>
-                    </td></tr>
+                    <td><input type="submit" value="Send" class="send_btn" onclick="messageValidation()" id="send_btn"></td></tr>
             </table>
+
+            </form>
 
 
         </div>        
@@ -135,21 +147,21 @@ and open the template in the editor.
             <strong>Contact us:</strong>
             <table>
                 <tr>
-                    <td><br>Email:</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:</td>
                     <td>
                         info@clique.com
                     </td>    
                 </tr>
 
                 <tr>
-                    <td>Telephone:</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Telephone:</td>
                     <td>
                         +1 (660) 090 9999
                     </td>    
                 </tr>
 
                 <tr>
-                    <td>Skype:</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skype:</td>
                     <td>
                         cliquejobportal
                     </td>    

@@ -75,21 +75,11 @@
             <!--------search button Java script------->
 
         </header>
-        <script type='text/javascript'>
-            function invokeServlet()
-            {
-                // form a URL with the servlet name to be invoked
-                var URL = 'http://localhost:8080/Online_job_portal/JobsAppliedServlet';
-
-                // This line will inkove a servlet and reload your page
-                location.href = URL;
-            }
-        </script>
         <div>
             <nav>
                 <ul>
                     <li><a class="active" href="JobSearch.jsp">Home</a></li>
-                    <li><a href='#' onclick='invokeServlet()'>Applied Jobs</a></li>
+                    <li><a href="appliedjobs.jsp">Applied Jobs</a></li>
                     <li><a href="Consultancies.html">Consultancies</a></li>
                     <li><a href="help.html">Help</a></li>
                     <li><a href="contactus.html">Contact Us</a></li>
@@ -170,59 +160,9 @@
                 </tr>
             </table>
 
-            <h1 align="center">Job Details</h1>
-            <%
-                ArrayList<Job> specialList = (ArrayList<Job>) session.getAttribute("jobList");
-                if (!specialList.isEmpty()) {
-            %>
-            <table align="center" border="1" class="table2">
-                <tr>
-                    <th>Job id</th>
-                    <th>Job Title</th>
-                    <th>Job Description</th>
-                    <th>Posted Date</th>
-                    <th>Closing Date</th>
-                    <th>Apply</th>
-                </tr>
-                <script type="text/javascript">
-                    function jobapply() {
-                        var x;
-                        if (confirm("Are you sure you want to apply for this job.") === true) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
-                </script>
-
-                <%
-                    for (Job spl : specialList) {
-                %>
-                <form action="JobApplyController" onsubmit="jobapply()" method="post">
-                    <tr>
-                        <td><%=spl.getJobId()%><input type="hidden" name="jobId" value="<%=spl.getJobId()%>"></td>
-                        <td><%=spl.getJobTitle()%></td>
-                        <td><%=spl.getJobDescription()%></td>
-                        <td><%=spl.getPostingDate()%></td>
-                        <td><%=spl.getLastDate()%></td>
-
-                        <td><input type="submit" value="Apply"></td>
-                </form>
-                </td>
-                </tr>
-
-                <%
-                        }
-                    } %>
-            </table>
-            <%
-                if (specialList.isEmpty()) {
-            %>
-            <h1 align="center"> Sorry,no jobs available with the provided search criteria. Please search again</h1>
-            <%
-                }
-
-            %>
+            <h1 align="center">Success</h1>
+            
+            <h1 align="center"> You have successfully applied the job. Please check the status of the applied jobs in the Applied Jobs tab.</h1>
         </table>
     </form>
 </body>

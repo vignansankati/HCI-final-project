@@ -5,28 +5,31 @@
  */
 
 
-function validateForm() {
-    'use strict';
-
+function messageValidation() {
     // Get references to the form elements:
-    var C_name = document.getElementById('C_name');
-    var C_email = document.getElementById('C_email');
-    var C_message = document.getElementById('C_message');
+    var C_name = document.getElementById('C_name').value;
+    var C_email = document.getElementById('C_email').value;
+    var C_message = document.getElementById('C_message').value;
    
  
-    // Validate the login
-    if ((C_name.value.length > 0) && (C_email.value.length > 0)&& (C_message.value.length > 0)) {
-        alert('We received your message, our team will contact you soon. Thankyou');
-        
-        return true;
-    } else {
-        alert('Please enter (*)required fields');
+    // Validate the message
+    if(C_name === ''){
+        alert('Please provide your name');
         return false;
     }
+    else if(C_email === ''){
+        alert('Please provide your email');
+        return false;
+    }
+    else if(C_message === ''){
+        alert('Please provide your message');
+        return false;
+    }
+    else {
+        alert('Thankyou for your valuable feedback. Our support team will contact you soon.');
+        return true;
+    }
 }
-window.onload = function () {
-    document.getElementById("send_btn").onclick = validateForm;
-};
 
 
 
@@ -49,11 +52,13 @@ function paymentValidation() {
     var yy = document.getElementById('yy');
     var cvv = document.getElementById('cvv');
 
-    // Validate the login
+    // Validate the payment
     if ((first_name.value.length > 0) && (email_id.value.length > 0)&& (mobile.value.length > 0)&& (address1.value.length > 0)&& (city.value.length > 0)&& (state.value.length > 0) && (country.value.length > 0)&& (zip.value.length > 0) && (nameoncard.value.length > 0)&& (cardnum.value.length > 0) && (mm.value.length > 0)&& (yy.value.length > 0) && (cvv.value.length > 0)) 
     {
        if((cardnum.value.length == 16) && (cvv.value.length == 3)){
-           return true;
+           window.location.href = 'loading.html'
+            return true;
+         
        }
         else{
              alert('Please enter your 16 digit card number and/or 3 digit CVV properly');

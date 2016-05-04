@@ -71,21 +71,29 @@ and open the template in the editor.
     <!--------search button Java script------->
  
         </header>
-        
+        <div>
             <nav>
                 <ul>
                     <li><a href="home.html">Home</a></li>
                     <li><a href="appliedjobs.html">Applied Jobs</a></li>
                     <li><a href="Consultancies.html">Consultancy</a></li>
                     <li><a href="help.html">Help</a></li>
-                    <li><a href="contactus.html">Contact us</a></li>
-                    <li><a class="active" href="myprofile.html">My profile</a></li>
-                    <li style="float:right" class='right'><a href="welcome.html">Logout</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a class="active" href="myprofile.html">My Profile</a></li>
+                    <li style="float:right" class='right'><a href="#openModal">Log Out</a></li>
 
                 </ul>
             </nav>
+<div id="openModal" class="modalDialog">
+    <div>	<a href="#close" title="Close" class="close">X</a>
 
-        
+        	<h2>Confirmation</h2>
+<p>Are you sure you want to log out?</p>
+<center><input type="button" value="yes" onclick="location.href = 'Login.jsp'" class="cnf_btn"></center>
+    </div>
+</div>
+
+        </div>
         
      <form>
         <fieldset>

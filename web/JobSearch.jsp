@@ -23,7 +23,7 @@
             <!--------search button------->
 
             <span id="maincontent">
-                <span> <a href="home.html">
+                <span> <a href="JobSearch.jsp">
                         <img src="ojp.png" alt="logo" class='logo' width="72" height="55">
                     </a>
                     <span class='title' > Online Job Portal </span>
@@ -73,14 +73,14 @@
             </script>
             <script src="http://code.jquery.com/jquery-latest.min.js"></script>
             <script type='text/javascript'>
-                            function invokeServlet()
-                            {
-                                // form a URL with the servlet name to be invoked
-                                var URL = 'http://localhost:8080/Online_job_portal/JobsAppliedServlet';
+                function invokeServlet()
+                {
+                    // form a URL with the servlet name to be invoked
+                    var URL = 'http://localhost:8080/Online_job_portal/JobsAppliedServlet';
 
-                                // This line will inkove a servlet and reload your page
-                                location.href = URL;
-                            }
+                    // This line will inkove a servlet and reload your page
+                    location.href = URL;
+                }
             </script>
             <!--------search button Java script------->
 
@@ -92,12 +92,22 @@
                     <li><a href='#' onclick='invokeServlet()'>Applied Jobs</a></li>
                     <li><a href="Consultancies.html">Consultancies</a></li>
                     <li><a href="help.html">Help</a></li>
-                    <li><a href="contactus.html">Contact us</a></li>
-                    <li><a href="myProfile.jsp">My profile</a></li>
-                    <li style="float:right" class='right'><a href="Welcome.jsp">Logout</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="myProfile.jsp">My Profile</a></li>
+                    <li style="float:right" class='right'><a href="#openModal">Log Out</a></li>
 
                 </ul>
             </nav>
+            <div id="openModal" class="modalDialog">
+                <div>	<a href="#close" title="Close" class="close">X</a>
+
+                    <h2>Confirmation</h2>
+                    <p>Are you sure you want to log out?</p>
+                    <center><input type="button" value="yes" onclick="location.href = 'Login.jsp'" class="cnf_btn"></center>
+
+                </div>
+            </div>
+
 
         </div>
         <form action="JobSearchServlet" method="post">
@@ -127,36 +137,36 @@
                         <select class='job_content_ddb' name="location" id="location">
                             <option value="select">select</option>
                             <option value="Alabama">Alabama</option><option value="Alaska">Alaska</option>
-                            <option value="Arizona">Arizona</option><option value="s4">Arkansas</option>
-                            <option value="California">California</option><option value="s6">Connecticut</option>
-                            <option value="s7">Colorado</option><option value="s8">Delaware</option>
-                            <option value="s9">Florida</option><option value="s10">Georgia</option>
-                            <option value="s11">Hawaii</option><option value="s12">Idaho</option>
-                            <option value="s13">Illinois</option><option value="s14">Indiana</option>
-                            <option value="Iowa">Iowa</option><option value="s16">Kansas</option>
-                            <option value="s17">Kentucky</option><option value="s18">Louisiana</option>
-                            <option value="s19">Maine</option><option value="s20">Maryland</option>
-                            <option value="s21">Massachusetts</option><option value="s22">Michigan</option>
-                            <option value="s23">Minnesota</option><option value="s24">Mississippi</option>
-                            <option value="s25">Missouri</option><option value="s26">Montana</option>
-                            <option value="s27">Nebraska</option><option value="s28">Nevada</option>
-                            <option value="s29">New Hampshire</option><option value="s30">New Jersey</option>
-                            <option value="s31">New Mexico</option><option value="s32">New York</option>
-                            <option value="s33">North Carolina</option><option value="s34">North Dakota</option>
-                            <option value="s35">Ohio</option><option value="s36">Oklahoma</option>
-                            <option value="s37">Oregon</option><option value="s38">Pennsylvania</option>
-                            <option value="s39">Rhode Island</option><option value="s40">South Carolina</option>
-                            <option value="s41">South Dakota</option><option value="s42">Tennesse</option>
-                            <option value="s43">Texas</option><option value="s44">Utah</option>
-                            <option value="s45">Vermont</option><option value="s46">Virginia</option>
-                            <option value="s47">Washington</option><option value="s48">West Virginia</option>
-                            <option value="s49">Wisconsin</option><option value="s50">Wyoming</option>
+                            <option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option>
+                            <option value="California">California</option><option value="Connecticut">Connecticut</option>
+                            <option value="Colorado">Colorado</option><option value="Delaware">Delaware</option>
+                            <option value="Florida">Florida</option><option value="Georgia">Georgia</option>
+                            <option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option>
+                            <option value="Illinois">Illinois</option><option value="Indiana">Indiana</option>
+                            <option value="Iowa">Iowa</option><option value="Kansas">Kansas</option>
+                            <option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option>
+                            <option value="Maine">Maine</option><option value="Maryland">Maryland</option>
+                            <option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option>
+                            <option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option>
+                            <option value="Missouri">Missouri</option><option value="Montana">Montana</option>
+                            <option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option>
+                            <option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option>
+                            <option value="New Mexico">New Mexico</option><option value="New York">New York</option>
+                            <option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option>
+                            <option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option>
+                            <option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option>
+                            <option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option>
+                            <option value="South Dakota">South Dakota</option><option value="Tennesse">Tennesse</option>
+                            <option value="Texas">Texas</option><option value="Utah">Utah</option>
+                            <option value="Vermont">Vermont</option><option value="Virginia">Virginia</option>
+                            <option value="Washington">Washington</option><option value="West Virginia">West Virginia</option>
+                            <option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option>
                         </select>
                     </td><td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" id="submit" value="Search">
+                        <input type="submit" id="submit" value="Search" class="jobSBtn">
                     </td>
                 </tr>
             </table>

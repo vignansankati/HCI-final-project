@@ -18,7 +18,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="welcome.css">
-        <script type="text/javascript" src="registration.js"></script>
+        <script src="registervalidation.js" type="text/javascript"></script>
     </head>
     <body>
         <header>
@@ -26,7 +26,7 @@ and open the template in the editor.
             <!--------search button------->
 
             <span id="maincontent">
-                <span> <a href="welcome.html">
+                <span> <a href="Login.jsp">
                         <img src="ojp.png" alt="logo" class='logo' width="72" height="55">
                     </a>
                     <span class='title' > Online Job Portal </span>
@@ -81,18 +81,18 @@ and open the template in the editor.
         <nav>
             <ul>
                 <li><a  href="Welcome.jsp">Home</a></li>
-                <li><a href="contactus_welcome.html">Contact us</a></li>
-                <li><a href="aboutus_welcome.html">About us</a></li>
+                <li><a href="contactus_welcome.html">Contact Us</a></li>
+                <li><a href="aboutus_welcome.html">About Us</a></li>
                 <li><a href="Help_welcome.html">Help</a></li>
-                <li class="active" style="float:right"><a href="Registration.jsp">Signup</a></li>
-                <li style="float:right"><a href="Welcome.jsp">Login</a></li>
+                <li class="active" style="float:right"><a href="Registration.jsp">Sign Up</a></li>
+                <li style="float:right"><a href="Welcome.jsp">Log In</a></li>
 
             </ul>
         </nav>
 
         <h1 class='reg_title'>Registration form </h1>
 
-        <form action="RegistrationServlet" method="post" enctype="multipart/form-data">
+        <form action="RegistrationServlet" method="post" onsubmit="return regvalid()" enctype="multipart/form-data">
             <fieldset>
                 <center>  
                     <table class='reg_content'>
@@ -106,8 +106,8 @@ and open the template in the editor.
                                 <span class="req">*</span>Name:
                             </td>
                             <td>
-                                <input type="text" name="firstname" placeholder="first name" class='reg_txtbox' id="firstname" required> &nbsp; 
-                                <input type="text" name="lastname" placeholder="last name" class='reg_txtbox' id="lastname"><br>
+                                <input type="text" name="firstname" placeholder="first name" class='reg_txtbox' id="firstname" required/> &nbsp; 
+                                <input type="text" name="lastname" placeholder="last name" class='reg_txtbox' id="lastname" ><br>
 
                             </td>
                         </tr>
@@ -116,7 +116,7 @@ and open the template in the editor.
                                 <span class="req">*</span>Email_Id:
                             </td>
                             <td><br>
-                                <input type="text" name="emailid" placeholder="email id" class='reg_txtbox' id="emailid"><br>
+                                <input type="text" name="emailid" placeholder="example@email.com" class='reg_txtbox' id="emailid" required/><br>
                             </td>
                         </tr>
                         <tr>
@@ -125,8 +125,8 @@ and open the template in the editor.
                             </td>
                             <td><br>
                                 <span class="tooltip">
-                                    <input type="text" name="password" placeholder="password" class='reg_txtbox' id="password">
-                                    <span class="tooltiptext">Password must be between 6 to 10 characters</span>
+                                    <input type="password" name="password" placeholder="password" class='reg_txtbox' id="password" pattern="[a-zA-Z0-9_-]{6,10}"/>
+                                    <span class="tooltiptext">password must contain 6 to 10 characters.</span>
                                 </span>
                                 <br>
                             </td>
@@ -135,18 +135,20 @@ and open the template in the editor.
                             <td><br>
                                 <span class="req">*</span>Re-enter Password:
                             </td>
-                            <td><br>
-                                <input type="text" name="reenter_password" placeholder="re-enter password" class='reg_txtbox' id="repassword"><br>
+                            <td><br><span class="tooltip">
+                                <input type="password" name="reenter_password" placeholder="re-enter password" class='reg_txtbox' id="repassword" required/>
+                                 <span class="tooltiptext">Re-enter the same password</span>
+                                </span><br>
                             </td>
                         </tr>
                         <tr>
                             <td><br>
-                                &nbsp;&nbsp;Mobile Number:
+                                <span class="req">*</span>Mobile Number:
                             </td>
                             <td><br>
-                                <input type="text" name="mob1" maxlength="3" size="3" placeholder="xxx" class='reg_txtbox' id="mob1"> - 
-                                <input type="text" name="mob2" maxlength="3" size="3" placeholder="xxx" class='reg_txtbox' id="mob2"> - 
-                                <input type="text" name="mob3" maxlength="4" size="4" placeholder="xxxx" class='reg_txtbox' id="mob3"><br>
+                                <input type="text" name="mob1" maxlength="3" size="3" placeholder="xxx" class='reg_txtbox' id="mob1" required/>- 
+                                <input type="text" name="mob2" maxlength="3" size="3" placeholder="xxx" class='reg_txtbox' id="mob2" required/>- 
+                                <input type="text" name="mob3" maxlength="4" size="4" placeholder="xxxx" class='reg_txtbox' id="mob3" required/><br>
                             </td>
                         </tr>
 
@@ -155,10 +157,10 @@ and open the template in the editor.
                                 <span class="req">*</span>Security Question#1: 
                             </td>
                             <td><br>
-                                <select class='reg_content_ddb' name="security1" id="security1">
+                                <select class='reg_content_ddb' name="security1" id="security1" required/>
                                     <option value="Select">Select</option>
                                     <option value="What is the name of the place where you born?">What is the name of the place where you born?</option>
-                                    <option value="What was the name of your elementary / primary school?">What was the name of your elementary / primary school?</option>
+                                    <option value="What was the name of your elementary / primary school?">What was the name of your elementary school?</option>
                                     <option value="What is your pet’s name?">What is your pet’s name?</option>
                                     <option value="What is your favorite color?">What is your favorite color?</option>
                                 </select><br>
@@ -169,7 +171,7 @@ and open the template in the editor.
                                 <span class="req">*</span>Security Answer#1: 
                             </td>
                             <td><br>
-                                <input type="text" name="secAnswer1" placeholder="answer" class='reg_txtbox' id="secAnswer1"><br>
+                                <input type="text" name="secAnswer1" placeholder="answer" class='reg_txtbox' id="secAnswer1" required/><br>
                             </td>
                         </tr>
                         <tr>
@@ -177,12 +179,12 @@ and open the template in the editor.
                                 <span class="req">*</span>Security Question#2: 
                             </td>
                             <td><br>
-                                <select class='reg_content_ddb' name="security2" id="security2">
+                                <select class='reg_content_ddb' name="security2" id="security2" required/>
                                     <option value="Select">Select</option>
-                                    <option value="What is the name of the place where you born?">What is the name of the place where you born?</option>
-                                    <option value="What was the name of your elementary / primary school?">What was the name of your elementary / primary school?</option>
-                                    <option value="What is your pet’s name?">What is your pet’s name?</option>
-                                    <option value="What is your favorite color?">What is your favorite color?</option>
+                                    <option value="What is the name of dream company?">What is the name of dream company?</option>
+                                    <option value="What was the name of your High school?">What was the name of your High / Business school?</option>
+                                    <option value="What is your pet name?">What is your pet name?</option>
+                                    <option value="What is your favorite animal?">What is your favorite animal?</option>
                                 </select><br>
                             </td>
                         </tr>
@@ -191,7 +193,7 @@ and open the template in the editor.
                                 <span class="req">*</span>Security Answer#2: 
                             </td>
                             <td><br>
-                                <input type="text" name="secAnswer2" placeholder="answer" class='reg_txtbox' id="secAnswer2"><br>
+                                <input type="text" name="secAnswer2" placeholder="answer" class='reg_txtbox' id="secAnswer2" required/><br>
                             </td>
                         </tr>
                         <tr>
@@ -199,14 +201,14 @@ and open the template in the editor.
                                 <span class="req">*</span>Student type:
                             </td>
                             <td><br>
-                                <input type="radio" name="studentType" value="international" class='reg_content'>International
-                                <input type="radio" name="studentType" value="national" class='reg_content'>National<br>
+                                <input type="radio" name="studentType" value="international" class='reg_content' required/>International
+                                <input type="radio" name="studentType" value="national" class='reg_content' required/>National<br>
                             </td>
                         </tr>
                         <tr>
-                            <td><br>
+                            <td>
                                 <span class="req">*</span>Resume Upload: </td>
-                            <td><input type="file" id="resume" name="resume" size="50"/></td>
+                            <td><input type="file" id="resume" class="resumeBtn" name="resume" size="200" required/></td>
                             <td>
 
                             <td>
@@ -220,7 +222,7 @@ and open the template in the editor.
 
                 <center>
                     <input type="reset" value="Reset" class='reg_btn'> &nbsp; &nbsp;
-                    <input type="submit" value="Sign up" class='reg_btn' id="reg_Btn">
+                    <input type="submit" value="Sign Up" class='reg_btn' id="reg_Btn">
                 </center>  
 
             </fieldset>

@@ -10,18 +10,22 @@ and open the template in the editor.
         <title>Online Job Portal</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link type="text/css" rel="stylesheet" href="welcome.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bootstrap-3.3.4-dist/js/jquery-ui.min.css" type="text/css"/>
+        <link type="text/css" rel="stylesheet" href="payment.css">
+        <script type="text/javascript" src="contactus.js"></script>
+         <meta http-equiv='refresh' content='5; url=paymentsuccess.html' >
     </head>
     <body>
-
+      
         <header>
 
             <!--------search button------->
 
             <span id="maincontent">
-                <span> <a href="Login.jsp">
+                <span> <a href="JobSearch.jsp">
                         <img src="ojp.png" alt="logo" class='logo' width="72" height="55">
                     </a>
                     <span class='title' > Online Job Portal </span>
@@ -72,60 +76,29 @@ and open the template in the editor.
             <!--------search button Java script------->
 
         </header>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Applied Jobs</a></li>
+                    <li><a class="active" href="#">Consultancies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">My Profile</a></li>
+                    <li style="float:right" class='right'><a href="#">Log Out</a></li>
 
-        <nav>
-            <ul class="topnav">
-                <li><a href="Login.jsp">Home</a></li>
-                <li><a href="contactus_welcome.html">Contact Us</a></li>
-                <li><a href="aboutus_welcome.html">About Us</a></li>
-                <li><a class="active" href="Help_welcome.html">Help</a></li>
+                </ul>
+            </nav>
 
-                <li style="float:right" class='right'><a href="Registration.jsp">Sign Up</a></li>
-                <li style="float:right" class='right'><a href="Login.jsp">Log In</a></li>
-
-            </ul>
-        </nav>
-
-
-        <!------- Accordion--->
-        <button class="accordion">How to apply for a job?</button>
-        <div class="panel">
-            <p>Register <strong><a href="Registration.jsp">here</a></strong> and sign in to apply for job, give your search criteria in the provided fields and click on submit. You will be shown with the jobs matching your criteria and click on Apply button.</p>
         </div>
+        
+    <center>
+        <br><br>
+        <h4 style="color:green">Please wait your payment is under processing.... </h4>
+        <br>
+         <img src="hourglass.gif"  alt="LOADING .."/></center>
+        
+        
 
-        <button class="accordion">How to update resume?</button>
-        <div class="panel">
-            <p>Click on My Profile there you will find upload resume field where you can upload your new resume.</p>
-        </div>
-
-        <button class="accordion">How to check status of job applied?</button>
-        <div class="panel">
-            <p>Go to Applied Jobs, there you can find the status of the particular job you are looking for.  </p>
-        </div>
-
-        <button class="accordion">How to change security questions or password?</button>
-        <div class="panel">
-            <p>Click on My profile, change the questions or password and then click on submit changes button.  </p>
-        </div>
-
-        <button class="accordion">How can we change resume details?</button>
-        <div class="panel">
-            <p>Resume details cannot be changed. Resume can be replaced with existing resume in My profile. </p>
-        </div>
-
-
-        <!------------Accordion java script------->
-        <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-
-            for (i = 0; i < acc.length; i++) {
-                acc[i].onclick = function () {
-                    this.classList.toggle("active");
-                    this.nextElementSibling.classList.toggle("show");
-                }
-            }
-        </script>
-        <!------------Accordion java script------->
     </body>
 </html>

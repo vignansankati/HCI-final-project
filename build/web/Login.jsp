@@ -22,7 +22,7 @@
             <!--------search button------->
 
             <span id="maincontent">
-                <span> <a href="welcome.html">
+                <span> <a href="Login.jsp">
                         <img src="ojp.png" alt="logo" class='logo' width="72" height="55">
                     </a>
                     <span class='title' > Online Job Portal </span>
@@ -76,13 +76,13 @@
 
         <nav>
             <ul class="topnav">
-                <li><a class="active" href="welcome.html">Home</a></li>
-                <li><a href="contactus_welcome.html">Contact us</a></li>
-                <li><a href="aboutus_welcome.html">About us</a></li>
+                <li><a class="active" href="Login.jsp">Home</a></li>
+                <li><a href="contactus_welcome.html">Contact Us</a></li>
+                <li><a href="aboutus_welcome.html">About Us</a></li>
                 <li><a href="Help_welcome.html">Help</a></li>
-                <li><a href="home.html">Temporary login</a></li>
-                <li style="float:right" class='right'><a href="Registration.html">Sign up</a></li>
-                <li style="float:right" class='right'><a href="welcome.html">Login</a></li>
+      
+                <li style="float:right" class='right'><a href="Registration.jsp">Sign Up</a></li>
+                <li style="float:right" class='right'><a href="Login.jsp">Log In</a></li>
 
             </ul>
         </nav>
@@ -100,19 +100,19 @@
                         <table>
                             <tr>
                                 <td><label class='home_lables'>Email-Id:</label>  </td>              
-                                <td><input type="text" class='login_txtbox' name="username" placeholder="Enter email id" id="username">
+                                <td><input type="text" class='login_txtbox' name="username" placeholder="Enter email id" id="username" required/>
                                 </td>
                             <br><br><br><br><br><br><br>
                             </tr>
                             <tr>
                                 <td><br><label class='home_lables'>Password:</label></td>
-                                <td><br><input type="password" class='login_txtbox' name="password" placeholder="Enter password" id="password">
+                                <td><br><input type="password" class='login_txtbox' name="password" placeholder="Enter password" id="password" required/>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <br><input type="submit" id="submit" value="Login">
+                                    <br><input type="submit" id="submit" value="Login" class="loginBtn">
                                 <td>
                             </tr>
                             <tr>
